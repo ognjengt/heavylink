@@ -7,13 +7,22 @@
     <title>Your app</title>
     <link rel="stylesheet" href="../../Content/css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="../../Content/css/app.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700" rel="stylesheet">
 </head>
 <body ng-controller="MainController">
 
-    <!--Your html here-->
-    <h2>{{hello}}</h2>
+    <div class="container-fluid">
+        <div class="topbar">
+            <h4 class="brand"> HEAVY<span>LINK</span></h4>
+            <p>Group your links and send them as one</p>
+        </div>
+    </div>
 
     <div ng-view></div>
+
+    
+    
 
     <!--Public scripts-->
     <script src="../../Scripts/jquery-1.10.2.min.js"></script>
