@@ -32,9 +32,7 @@ body {
     text-align: center;
     font-size: 1.22em;
   }
-}
-
-h4.brand{
+  h4.brand{
   font-weight: 500;
   font-size: 5em;
   text-align: center;
@@ -45,6 +43,9 @@ h4.brand{
     color: $spanColor;
   }
 }
+}
+
+
 .spacer{
   margin-top: $topbarHeight;
 }
@@ -61,10 +62,80 @@ h4.brand{
     height: calc(100vh - 160px);
     padding: 20px;
     overflow: auto;
+    text-align: center;
+
+    input{
+      width: 100%;
+      height: 60px;
+      border-radius: 100px;
+      box-shadow: none;
+      border:none;
+      outline: none;
+      padding: 20px;
+      background: #f7f7f7;
+      font-size: 1.1em;
+      float: left;
+      box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+    }
+    button{
+      width: 60px;
+      font-size: 1.7em;
+      float: left;
+      height: 60px;
+      border-radius: 100%;
+      margin-left: -60px;
+      outline: none;
+      border: none;
+      background: #f7f7f7;
+      transition: 0.15s ease;
+    }
+    button:hover{
+      background: $spanColor;
+      color: #fff;
+    }
+
+    .links{
+      text-align: left;
+      margin-top: 50px;
+      .link{
+        width: 100%;
+        height: 70px;
+        background: #484B5E;
+        color: #fff;
+        padding: 20px;
+        padding-top: 10px;
+        border-radius: 4px;
+        margin-top: 20px;
+        transition: 0.15s ease;
+        word-wrap: break-word;
+      }
+
+      .link:hover{
+        background: lighten(#484B5E,15);
+        //background: $spanColor;
+      }
+
+    }
+
+    .generate-button{
+      widows: 100%;
+      height: 50px;
+      text-align: center;
+      padding: 15px;
+      background: $spanColor;
+      border-radius: 4px;
+      margin-top: 30px;
+      cursor: pointer;
+      transition: 0.15s ease;
+    }
+
+    .generate-button:hover{
+      background: darken($spanColor,10);
+    }
   }
   .right{
     width: 100%;
-    border-left: 1px solid rgba(100,100,100,0.15);
+    border-left: 1px solid rgba(100,100,100,0.3);
     
     //padding:20px;
     //padding-top: 10px;
@@ -76,7 +147,8 @@ h4.brand{
       text-align: center;
       color: $spanColor;
       width: 100%;
-      border-bottom: 1px solid rgba(0,0,0,0.15);
+      border-bottom: 2px solid rgba(2, 2, 2, 0.15);
+      box-shadow: 0px 1px 2px rgba(180,180,180, 0.15);
 
       h4{
         font-weight: 500;
@@ -90,9 +162,10 @@ h4.brand{
       .link {
         width: 100%;
         height: 170px;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+        border-bottom: 2px solid rgba(2, 2, 2, 0.15);
+        box-shadow: 0px 1px 1px rgba(180,180,180, 0.15);
         padding: 20px;
-        transition: 0.2s ease;
+        transition: 0.15s ease;
         cursor: pointer; 
 
         .colored{
