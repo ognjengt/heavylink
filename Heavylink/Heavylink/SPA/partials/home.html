@@ -5,38 +5,25 @@
     <div class="mainleft">
       <!--<h4>NEW LINK GROUP</h4>-->
       <div class="container">
-          <input type="text" placeholder="Your link goes here..."/>
-          <button class="btn btn-default"><i class="ion ion-plus"></i></button>
+          <input type="text" placeholder="Your link goes here..." ng-model="link.pastedUrl" ng-keyup="CallAddLinkOnEnter($event)"/>
+          <button class="btn btn-default" ng-click="addLink(link)"><i class="ion ion-plus"></i></button>
       </div>
-      <div class="container links">
-
-        <a href="">
+      <div class="container links" ng-show="links.length != 0">
+        
+        <div ng-repeat="link in links">
+          <a href="{{link.pastedUrl}}" target="_blank">
           <div class="col-md-6">
               <div class="link">
-                <h5>http://collectui.com/designers/divanraj/ui-kit</h5>
+                <h5>{{link.pastedUrl}}</h5>
+                <div class="close-btn" ng-click="removeLink(link.id,$event)"><i class="ion ion-close"></i></div>
               </div>
           </div>
         </a>
-
-        <a href="">
-          <div class="col-md-6">
-              <div class="link">
-                <h5>https://auth0.com/learn/json-web-tokens/?utm_source=twitter&utm_medium=sc&utm_campaign=learn</h5>
-              </div>
-          </div>
-        </a>
-
-        <a href="">
-          <div class="col-md-6">
-              <div class="link">
-                <h5>https://developer.github.com/v3/search/#search-repositories</h5>
-              </div>
-          </div>
-        </a>
+        </div>
 
       </div>
 
-      <div class="container">
+      <div class="container" ng-show="links.length != 0">
         <div class="col-md-12">
           <div class="generate-button">Generate group link</div>
         </div>

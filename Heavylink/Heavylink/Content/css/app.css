@@ -78,7 +78,19 @@ body {
       border-radius: 4px;
       margin-top: 20px;
       transition: 0.15s ease;
-      word-wrap: break-word; }
+      word-wrap: break-word;
+      position: relative;
+      padding-right: 35px; }
+      .content .mainleft .links .link .close-btn {
+        position: absolute;
+        top: 25px;
+        right: 10px;
+        width: 20px;
+        height: 20px;
+        font-size: 1.2em;
+        transition: 0.15s ease; }
+      .content .mainleft .links .link .close-btn:hover {
+        color: #2ecc71; }
     .content .mainleft .links .link:hover {
       background: #696e89; }
   .content .mainleft .generate-button {
@@ -125,5 +137,25 @@ body {
       color: #fff; }
 .content ::-webkit-scrollbar {
   display: none; }
+
+/* The starting CSS styles for the enter animation */
+.mainleft .ng-enter {
+  transition: 0.2s linear all;
+  opacity: 0;
+  transform: translateY(30px); }
+
+/* The finishing CSS styles for the enter animation */
+.mainleft .ng-enter.ng-enter-active {
+  opacity: 1;
+  transform: translateY(0); }
+
+.mainleft .ng-leave {
+  transition: 0.2s linear all;
+  opacity: 1;
+  transform: translateY(0); }
+
+.mainleft .ng-leave.ng-leave-active {
+  opacity: 0;
+  transform: translateY(-30px); }
 
 /*# sourceMappingURL=app.css.map */
