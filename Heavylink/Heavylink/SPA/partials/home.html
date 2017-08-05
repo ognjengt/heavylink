@@ -1,14 +1,14 @@
 ﻿<div class="container-fluid">
   <div class="spacer"></div>
   <div class="content">
-    <div class="col-md-9">
+    <div class="col-md-12">
     <div class="mainleft">
       <!--<h4>NEW LINK GROUP</h4>-->
       <div class="container">
         <p>Add on paste {{addOnPasteEnabled? 'enabled' : 'disabled'}}. <span class="addOnPasteBtn" ng-click="addOnPasteEnabled = !addOnPasteEnabled">{{addOnPasteEnabled? 'Disable' : 'Enable'}}</span></p>
 
           <input type="text" placeholder="Your link goes here..." ng-model="link.pastedUrl" ng-keyup="CallAddLinkOnEnter($event)" id="linkInput"/>
-          <button class="btn btn-default" ng-click="addLink(link)"><i class="ion ion-plus"></i></button>
+          <button data-toggle="tooltip" title="Add link" class="btn btn-default" ng-click="addLink(link)"><i class="ion ion-plus"></i></button>
 
           
       </div>
@@ -27,15 +27,16 @@
 
       </div>
 
+
       <div class="container" ng-show="links.length != 0">
         <div class="col-md-12">
-          <div class="generate-button">Generate group link</div>
+          <div class="btn generate-button" ng-click="generateGroupLink(links)">Generate group link</div>
         </div>
       </div>
 
     </div>
   </div>
-  <div class="col-md-3">
+  <!--<div class="col-md-3">
     <div class="right">
       <div class="heading">
         <h4>Newest</h4>
@@ -46,49 +47,65 @@
         <a href="#">
           <div class="link">
             <h5>Link 1</h5>
-            <!--<a href="#" class="colored">http://jurac.com</a>-->
+            <a href="#" class="colored">http://jurac.com</a>
           </div>
         </a>
 
         <a href="/asdee">
           <div class="link">
             <h5>Link 1</h5>
-            <!--<a href="#" class="colored">http://jurac.com</a>-->
+            <a href="#" class="colored">http://jurac.com</a>
           </div>
         </a>
 
         <a href="#">
           <div class="link">
             <h5>Link 1</h5>
-            <!--<a href="#" class="colored">http://jurac.com</a>-->
+            <a href="#" class="colored">http://jurac.com</a>
           </div>
         </a>
 
         <a href="#">
           <div class="link">
             <h5>Link 1</h5>
-            <!--<a href="#" class="colored" >http://jurac.com</a>-->
+            <a href="#" class="colored" >http://jurac.com</a>
           </div>
         </a>
 
         <a href="#">
           <div class="link">
             <h5>Link 1</h5>
-            <!--<a href="#" class="colored" >http://jurac.com</a>-->
+            <a href="#" class="colored" >http://jurac.com</a>
           </div>
         </a>
 
         <a href="#">
           <div class="link">
             <h5>Link 1</h5>
-            <!--<a href="#" class="colored" >http://jurac.com</a>-->
+            <a href="#" class="colored" >http://jurac.com</a>
           </div>
         </a>
       
         
       </div>
     </div>
-  </div>
+  </div>-->
+
   </div>
   
+</div>
+
+<div id="popup">
+  <div class="overlay">
+    <div class="wrapper">
+      <div class="close-popup" ng-click="closePopup()"><i class="ion ion-close"></i></div>
+      <div class="header">Group url</div>
+      <div class="popup-body">
+        <div class="container-fluid">
+          <input type="text" class="generatedInput" value="kurac" id="generatedInput">
+          <button id="copyToClipBtn" ngclipboard data-clipboard-target="#generatedInput" ngclipboard-success="putCopiedFeedback()" data-toggle="tooltip" title="Copy link" class="btn btn-default btn-copy-generated"><i class="ion ion-clipboard"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

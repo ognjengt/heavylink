@@ -1,4 +1,4 @@
-﻿var app = angular.module('app', ['ngRoute','ngAnimate']);
+﻿var app = angular.module('app', ['ngRoute','ngAnimate', 'ngclipboard']);
 
 app.config(function ($routeProvider, $locationProvider) {
 

@@ -6,6 +6,8 @@
         $scope.firstHotkey = 17;
         $scope.addOnPasteEnabled = true;
         document.getElementById('linkInput').focus();
+        $('[data-toggle="tooltip"]').tooltip();
+        //$scope.popupVisible = false;
     }
 
     init();
@@ -50,6 +52,26 @@
             return obj.id !== id;
         });
         document.getElementById('linkInput').focus();
+    }
+
+    $scope.generateGroupLink = function(links) {
+        var urls = [];
+        links.forEach(function(link) {
+            urls.push(link.pastedUrl);
+        })
+        HomeFactory.generateGroupLink(urls).then(function(response) {
+            console.log(response.data);
+            $('#popup').fadeIn(200);
+        })
+    }
+
+    $scope.closePopup = function() {
+        $('#popup').fadeOut(200);
+        $('#copyToClipBtn').attr('title', 'Copy link').tooltip('fixTitle').tooltip('show');
+    }
+
+    $scope.putCopiedFeedback = function() {
+        $('#copyToClipBtn').attr('title', 'Copied!').tooltip('fixTitle').tooltip('show');
     }
     
 })
