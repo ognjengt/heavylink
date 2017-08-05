@@ -101,10 +101,14 @@
       <div class="close-popup" ng-click="closePopup()"><i class="ion ion-close"></i></div>
       <div class="header">Group url</div>
       <div class="popup-body">
+
         <div class="container-fluid">
-          <input type="text" class="generatedInput" value="kurac" id="generatedInput">
+          <input type="text" class="generatedInput" value="{{generatedLink}}" id="generatedInput">
+
           <button id="copyToClipBtn" ngclipboard data-clipboard-target="#generatedInput" ngclipboard-success="putCopiedFeedback()" data-toggle="tooltip" title="Copy link" class="btn btn-default btn-copy-generated"><i class="ion ion-clipboard"></i></button>
+
         </div>
+
       </div>
     </div>
   </div>

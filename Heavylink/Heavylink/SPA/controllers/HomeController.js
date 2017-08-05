@@ -61,6 +61,7 @@
         })
         HomeFactory.generateGroupLink(urls).then(function(response) {
             console.log(response.data);
+            $scope.generatedLink = "http://heavylink.com/"+response.data;
             $('#popup').fadeIn(200);
         })
     }
