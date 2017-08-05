@@ -204,6 +204,15 @@ body {
   }
 }
 
+.addOnPasteBtn{
+  color: $spanColor;
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+.addOnPasteBtn:hover{
+  color: lighten($spanColor,20);
+}
+
 // Animations
 
 /* The starting CSS styles for the enter animation */

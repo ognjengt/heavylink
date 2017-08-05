@@ -3,7 +3,8 @@
     function init() {
         $scope.links = [];
         $scope.linkId = 0;
-        $scope.firstHotkey = 0;
+        $scope.firstHotkey = 17;
+        $scope.addOnPasteEnabled = true;
     }
 
     init();
@@ -13,15 +14,18 @@
         if (key == 13) {
             $scope.addLink($scope.link);
         }
-        else if(key == 17) {
-            $scope.firstHotkey = key;
-        }
+        if($scope.addOnPasteEnabled) {
+            if(key == 17) {
+                $scope.firstHotkey = key;
+            }
         else if(key == 86) {
             if($scope.firstHotkey == 17) {
-                $scope.addLink($scope.link);
-                $scope.firstHotkey = 0;
+                    $scope.addLink($scope.link);
+                    $scope.firstHotkey = 0;
+                }
             }
         }
+         
     }
 
     $scope.addLink = function(link) {

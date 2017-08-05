@@ -138,6 +138,14 @@ body {
 .content ::-webkit-scrollbar {
   display: none; }
 
+.addOnPasteBtn {
+  color: #2ecc71;
+  cursor: pointer;
+  transition: 0.15s ease; }
+
+.addOnPasteBtn:hover {
+  color: #7ee2a8; }
+
 /* The starting CSS styles for the enter animation */
 .mainleft .ng-enter {
   transition: 0.2s linear all;
