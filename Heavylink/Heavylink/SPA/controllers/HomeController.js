@@ -5,6 +5,7 @@
         $scope.linkId = 0;
         $scope.firstHotkey = 17;
         $scope.addOnPasteEnabled = true;
+        document.getElementById('linkInput').focus();
     }
 
     init();
@@ -40,6 +41,7 @@
         link.id = $scope.linkId++;
         $scope.links.push(link);
         $scope.link = {};
+        document.getElementById('linkInput').focus();
     }
 
     $scope.removeLink = function(id,$event) {
@@ -47,6 +49,7 @@
         $scope.links = $scope.links.filter(function( obj ) {
             return obj.id !== id;
         });
+        document.getElementById('linkInput').focus();
     }
     
 })
