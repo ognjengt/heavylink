@@ -1,1 +1,33 @@
-﻿{{hello}}
+﻿<div class="container-fluid">
+  <div class="spacer"></div>
+  <div class="linkpage-content">
+    <div class="col-md-12">
+      <div class="main-link-content">
+        <div class="container">
+          <input class="linkInput" type="text" id="linkInput" value="{{linkUrl}}">
+
+          <button id="copyLinkBtn" ngclipboard data-clipboard-target="#linkInput" ngclipboard-success="putCopiedFeedback()" data-toggle="tooltip" title="Copy link" class="btn btn-default btn-copy-linkpage"><i class="ion ion-clipboard"></i></button>
+
+          <div class="container links">
+
+            <a href="">
+              <div class="col-md-6">
+                <div class="link">
+                  <!--<div class="preview">
+                    <iframe src="http://www.angularjshub.com/examples/eventhandlers/keyboardevents/" frameborder="0" style="border:none" scrolling="no" sandbox></iframe>
+                  </div>-->
+                  <h5>http://www.angularjshub.com/examples/eventhandlers</h5>
+                  <div class="show-preview">
+                    <i class="ion ion-eye"></i>
+                  </div>
+                </div>
+              </div>
+            </a>
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

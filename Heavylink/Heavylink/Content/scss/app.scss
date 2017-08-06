@@ -32,7 +32,10 @@ body {
   p{
     font-size: 1.22em;
   }
-  h4.brand{
+  a{
+    color: #fff;
+    text-decoration: none;
+    h4.brand{
   font-weight: 500;
   font-size: 5em;
   //text-shadow: 0px 1px 3px #222;
@@ -42,6 +45,7 @@ body {
     color: $spanColor;
   }
 }
+  }
 }
 
 
@@ -113,6 +117,7 @@ body {
         position: relative;
         padding-right: 35px;
         border-top: 1px solid rgba(255,255,255,0.3);
+        overflow: hidden;
 
         .close-btn{
           position: absolute;
@@ -328,6 +333,20 @@ body {
       float: left;
       height: 50px;
       border-radius: 100%;
+      margin-left: -82px;
+      outline: none;
+      border: none;
+      background: transparent;
+      transition: 0.15s ease;
+      margin-top: 25px;
+      color: #777;
+}
+.btn-copy-linkpage{
+      width: 50px;
+      font-size: 1.7em;
+      float: left;
+      height: 50px;
+      border-radius: 100%;
       margin-left: -60px;
       outline: none;
       border: none;
@@ -336,8 +355,103 @@ body {
       margin-top: 25px;
       color: #777;
 }
-.btn-copy-generated:hover, .btn-copy-generated:visited, .btn-copy-generated:active, .btn-copy-generated:focus{
+.btn-goto-generated{
+      width: 50px;
+      font-size: 1.7em;
+      float: left;
+      height: 50px;
+      border-radius: 100%;
+      margin-left: -50px;
+      outline: none;
+      border: none;
+      background: transparent;
+      transition: 0.15s ease;
+      margin-top: 25px;
+      color: #777;
+}
+.btn-copy-generated:hover, .btn-copy-generated:visited, .btn-copy-generated:active, .btn-copy-generated:focus, .btn-goto-generated:hover, .btn-goto-generated:visited, .btn-goto-generated:active, .btn-goto-generated:focus, .btn-copy-linkpage:hover, .btn-copy-linkpage:visited, .btn-copy-linkpage:active, .btn-copy-linkpage:focus{
     color: $spanColor;
     background: transparent;
     outline: none;
+}
+
+// link page
+.linkpage-content{
+
+  .main-link-content{
+    margin-top: 20px;
+  }
+
+  .linkInput{
+    text-align: center;
+      width: 100%;
+      height: 60px;
+      border-radius: 100px;
+      box-shadow: none;
+      border:none;
+      outline: none;
+      padding: 20px;
+      background: darken(#272731,6);
+      font-size: 1.1em;
+      float: left;
+      box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+      color: #fff;
+      border: 1px solid lighten(#272731,5);
+      margin-top: 20px;
+  }
+
+  .links{
+    width: 100%;
+    min-height: 500px;
+    max-height: auto;
+    margin-top: 120px;
+
+    .link{
+        width: 100%;
+        height: 110px;
+        background: #484B5E;
+        color: #fff;
+        padding: 20px;
+        padding-top: 10px;
+        border-radius: 4px;
+        margin-top: 20px;
+        transition: 0.15s ease;
+        word-wrap: break-word;
+        position: relative;
+        padding-right: 20px;
+        border-top: 1px solid rgba(255,255,255,0.3);
+        overflow: hidden;
+        position: relative;
+
+        .preview{
+          width: 100%;
+          height: 220px;
+          display: none;
+          //background: red;
+          border-radius: 4px;
+          iframe{
+            width: 100%;
+            height: 100%;
+            overflow:hidden;
+          }
+        }
+
+        .show-preview{
+          position: absolute;
+          bottom: 11px;
+          right: 15px;
+          width: 20px;
+          height: 20px;
+          font-size: 1.7em;
+          transition: 0.15s ease;
+        }
+        .show-preview:hover{
+          color: $spanColor;
+        }
+    }
+    .link:hover{
+        background: lighten(#484B5E,15);
+        //background: $spanColor;
+      }
+  }
 }

@@ -61,7 +61,7 @@
         })
         HomeFactory.generateGroupLink(urls).then(function(response) {
             console.log(response.data);
-            $scope.generatedLink = "http://heavylink.com/"+response.data;
+            $scope.generatedLink = "http://localhost:6934/"+response.data; // change in prod
             $('#popup').fadeIn(200);
         })
     }
@@ -73,6 +73,11 @@
 
     $scope.putCopiedFeedback = function() {
         $('#copyToClipBtn').attr('title', 'Copied!').tooltip('fixTitle').tooltip('show');
+    }
+
+    $scope.goToGeneratedLink = function(generatedLink) {
+        //$window.open(generatedLink, '_blank');
+        $window.location.href = generatedLink;
     }
     
 })
