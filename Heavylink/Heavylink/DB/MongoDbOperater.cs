@@ -26,7 +26,7 @@ namespace Heavylink.DB
 
         public async Task<bool> AddNewLink(Record generatedLink)
         {
-            //await GeneratedLinksCollection.Indexes.CreateOneAsync(Builders<GeneratedLink>.IndexKeys.Ascending(_ => _.GeneratedUrl));
+            //await GeneratedLinksCollection.Indexes.CreateOneAsync(Builders<Record>.IndexKeys.Ascending("DateCreated"), new CreateIndexOptions { ExpireAfter = new TimeSpan(0,0,50)});
             await GeneratedLinksCollection.InsertOneAsync(generatedLink);
             return true;
         }

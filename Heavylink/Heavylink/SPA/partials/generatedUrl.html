@@ -15,7 +15,7 @@
               <div class="col-md-6">
                 <div class="link">
                   <div class="preview">
-                    <iframe ng-src="{{link}}" frameborder="0" style="border:none" scrolling="no" sandbox></iframe>
+                    <iframe onload="iframeLoaded(this)" id="frame-{{$index}}" ng-src="{{link}}" frameborder="0" style="border:none" scrolling="no" sandbox></iframe>
                   </div>
                   <h5>{{link}}</h5>
                   <div class="show-preview">

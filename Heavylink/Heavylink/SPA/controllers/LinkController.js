@@ -13,6 +13,7 @@
                 trusted.push($sce.trustAsResourceUrl(url));
             });
             $scope.record.Urls = trusted;
+            
         })
     }
 
@@ -20,6 +21,13 @@
 
     $scope.putCopiedFeedback = function() {
         $('#copyLinkBtn').attr('title', 'Copied!').tooltip('fixTitle').tooltip('show');
+    }
+
+    window.iframeLoaded = function(iframe) {
+        console.log(iframe.id);
+        if(!isNaN(iframe.id.substring(7,6))) {
+            
+        }
     }
 
 
