@@ -1,4 +1,4 @@
-﻿app.controller('LinkController', function ($scope, $window, $rootScope, $routeParams, LinksFactory) {
+﻿app.controller('LinkController', function ($scope, $window, $rootScope, $routeParams, LinksFactory, $sce) {
 
     function init() {
         // change in prod
@@ -7,6 +7,12 @@
 
         LinksFactory.getLinksForThisUrl($routeParams.generatedUrl).then(function(response) {
             console.log(response.data);
+            $scope.record = response.data;
+            var trusted = [];
+            $scope.record.Urls.forEach(function(url){
+                trusted.push($sce.trustAsResourceUrl(url));
+            });
+            $scope.record.Urls = trusted;
         })
     }
 

@@ -13,7 +13,7 @@ namespace Heavylink.DB
     {
         public MongoClient Client { get; set; }
         public IMongoDatabase Database { get; set; }
-        public IMongoCollection<GeneratedLink> GeneratedLinksCollection { get; set; }
+        public IMongoCollection<Record> GeneratedLinksCollection { get; set; }
 
         public MongoDbOperater() { }
 
@@ -21,14 +21,20 @@ namespace Heavylink.DB
         {
             this.Client = new MongoClient(address);
             this.Database = Client.GetDatabase(dbName);
-            this.GeneratedLinksCollection = Database.GetCollection<GeneratedLink>("generatedLinks");
+            this.GeneratedLinksCollection = Database.GetCollection<Record>("generatedLinks");
         }
 
-        public async Task<bool> AddNewLink(GeneratedLink generatedLink)
+        public async Task<bool> AddNewLink(Record generatedLink)
         {
-            await GeneratedLinksCollection.Indexes.CreateOneAsync(Builders<GeneratedLink>.IndexKeys.Ascending(_ => _.GeneratedUrl));
+            //await GeneratedLinksCollection.Indexes.CreateOneAsync(Builders<GeneratedLink>.IndexKeys.Ascending(_ => _.GeneratedUrl));
             await GeneratedLinksCollection.InsertOneAsync(generatedLink);
             return true;
+        }
+
+        public async Task<Record> GetLinksForThisUrl(string code)
+        {
+            var record = await GeneratedLinksCollection.Find(l => l.GeneratedUrl == code).SingleAsync();
+            return record;
         }
     }
 

@@ -9,14 +9,15 @@
           <button id="copyLinkBtn" ngclipboard data-clipboard-target="#linkInput" ngclipboard-success="putCopiedFeedback()" data-toggle="tooltip" title="Copy link" class="btn btn-default btn-copy-linkpage"><i class="ion ion-clipboard"></i></button>
 
           <div class="container links">
+            <div ng-repeat="link in record.Urls">
 
-            <a href="">
+              <a href="{{link}}" target="_blank">
               <div class="col-md-6">
                 <div class="link">
-                  <!--<div class="preview">
-                    <iframe src="http://www.angularjshub.com/examples/eventhandlers/keyboardevents/" frameborder="0" style="border:none" scrolling="no" sandbox></iframe>
-                  </div>-->
-                  <h5>http://www.angularjshub.com/examples/eventhandlers</h5>
+                  <div class="preview">
+                    <iframe ng-src="{{link}}" frameborder="0" style="border:none" scrolling="no" sandbox></iframe>
+                  </div>
+                  <h5>{{link}}</h5>
                   <div class="show-preview">
                     <i class="ion ion-eye"></i>
                   </div>
@@ -24,6 +25,7 @@
               </div>
             </a>
 
+            </div>
           </div>
           
         </div>

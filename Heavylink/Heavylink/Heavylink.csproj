@@ -214,7 +214,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="DB\MongoDbOperater.cs" />
-    <Compile Include="Models\GeneratedLink.cs" />
+    <Compile Include="Models\Record.cs" />
     <Compile Include="Models\Link.cs" />
     <Compile Include="Models\Links.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

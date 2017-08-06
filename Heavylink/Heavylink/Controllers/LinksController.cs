@@ -23,7 +23,7 @@ namespace Heavylink.Controllers
             uniqueUrl = uniqueUrl.Replace("+", "");
             uniqueUrl = uniqueUrl.Replace("/", "");
 
-            GeneratedLink gl = new GeneratedLink();
+            Record gl = new Record();
             gl.GeneratedUrl = uniqueUrl;
             gl.Urls = links.Urls;
             gl.DateCreated = DateTime.Now;
@@ -35,6 +35,12 @@ namespace Heavylink.Controllers
             }
 
             return uniqueUrl;
+        }
+
+        public async Task<Record> GetLinksForThisUrl(string code)
+        {
+            Record record = await DbOperater.GetLinksForThisUrl(code);
+            return record;
         }
     }
 }

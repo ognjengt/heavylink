@@ -7,7 +7,7 @@ using MongoDB.Driver;
 
 namespace Heavylink.Models
 {
-    public class GeneratedLink
+    public class Record
     {
         public ObjectId Id { get; set; }
         public string GeneratedUrl { get; set; }
