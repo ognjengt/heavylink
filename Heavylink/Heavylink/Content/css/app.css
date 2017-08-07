@@ -187,6 +187,20 @@ body {
     min-height: 100%;
     max-height: auto;
     background: rgba(0, 0, 0, 0.8); }
+    #popup .overlay #loading {
+      width: 300px;
+      height: 200px;
+      position: absolute;
+      top: 35%;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      padding-top: 50px;
+      font-size: 7em; }
+      #popup .overlay #loading .loader {
+        animation: rotiraj 1s infinite linear; }
+  #popup #wrapperGenerated {
+    display: none; }
   #popup .wrapper {
     width: 600px;
     height: 150px;
@@ -352,5 +366,11 @@ body {
       color: #2ecc71; }
   .linkpage-content .links .link:hover {
     background: #696e89; }
+
+@keyframes rotiraj {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
 
 /*# sourceMappingURL=app.css.map */

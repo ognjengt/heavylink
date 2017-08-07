@@ -261,6 +261,25 @@ body {
     min-height: 100%;
     max-height: auto;
     background: rgba(0,0,0,0.8);
+
+    #loading{
+      width: 300px;
+      height: 200px;
+      position: absolute;
+      top: 35%;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      padding-top: 50px;
+      font-size: 7em;
+      
+      .loader{
+        animation: rotiraj 1s infinite linear;
+      }
+    }
+  }
+  #wrapperGenerated{
+    display: none;
   }
   .wrapper{
     width: 600px;
@@ -460,5 +479,15 @@ body {
         background: lighten(#484B5E,15);
         //background: $spanColor;
       }
+  }
+}
+
+@keyframes rotiraj{
+  0%{
+    transform: rotate(0deg);
+  }
+
+  100%{
+    transform: rotate(360deg);
   }
 }

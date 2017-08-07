@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Web.Http;
 using Heavylink.DB;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace Heavylink.Controllers
 {
@@ -17,6 +18,7 @@ namespace Heavylink.Controllers
         [ActionName("GenerateGroupLink")]
         public async Task<string> GenerateGroupLink([FromBody]Links links)
         {
+            //Thread.Sleep(2000);
             Guid g = Guid.NewGuid();
             string uniqueUrl = Convert.ToBase64String(g.ToByteArray());
             uniqueUrl = uniqueUrl.Replace("=", "");

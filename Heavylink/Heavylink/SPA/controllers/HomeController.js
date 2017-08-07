@@ -40,6 +40,8 @@
             alert('No more than 10 links per group!');
             return;
         }
+        // check if link contains http
+        if(!link.pastedUrl.includes("http://") && !link.pastedUrl.includes("https://")) link.pastedUrl = 'http://'+link.pastedUrl;
         link.id = $scope.linkId++;
         $scope.links.push(link);
         $scope.link = {};
@@ -56,19 +58,24 @@
 
     $scope.generateGroupLink = function(links) {
         var urls = [];
+        $('#popup').fadeIn(200);
         links.forEach(function(link) {
             urls.push(link.pastedUrl);
-        })
+        });
         HomeFactory.generateGroupLink(urls).then(function(response) {
             console.log(response.data);
             $scope.generatedLink = "http://localhost:6934/"+response.data; // change in prod
-            $('#popup').fadeIn(200);
+            $('#loading').fadeOut(100);
+            $('#wrapperGenerated').fadeIn(200);
         })
     }
 
     $scope.closePopup = function() {
+        $scope.links = [];
         $('#popup').fadeOut(200);
-        $('#copyToClipBtn').attr('title', 'Copy link').tooltip('fixTitle').tooltip('show');
+        $('#wrapperGenerated').fadeOut(200);
+        $('#loading').fadeIn(700);
+        $('#copyToClipBtn').attr('title', 'Copy link').tooltip('fixTitle');
     }
 
     $scope.putCopiedFeedback = function() {

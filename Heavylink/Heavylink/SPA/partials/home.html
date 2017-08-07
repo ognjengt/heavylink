@@ -97,7 +97,7 @@
 
 <div id="popup">
   <div class="overlay">
-    <div class="wrapper">
+    <div class="wrapper" id="wrapperGenerated">
       <div class="close-popup" ng-click="closePopup()"><i class="ion ion-close"></i></div>
       <div class="header">Group url</div>
       <div class="popup-body">
@@ -108,9 +108,14 @@
           <button id="copyToClipBtn" ngclipboard data-clipboard-target="#generatedInput" ngclipboard-success="putCopiedFeedback()" data-toggle="tooltip" title="Copy link" class="btn btn-default btn-copy-generated"><i class="ion ion-clipboard"></i></button>
 
           <button id="openLinkBtn" data-toggle="tooltip" title="Go to link" class="btn btn-default btn-goto-generated" ng-click="goToGeneratedLink(generatedLink)"><i class="ion ion-chevron-right"></i></button>
-
         </div>
 
+      </div>
+    </div>
+
+    <div id="loading">
+      <div class="loader">
+        <i class="ion ion-load-c"></i>
       </div>
     </div>
   </div>
