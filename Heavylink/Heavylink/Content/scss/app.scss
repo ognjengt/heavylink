@@ -491,3 +491,11 @@ body {
     transform: rotate(360deg);
   }
 }
+
+.not-found{
+  h1{
+    font-size: 4.5em;
+  }
+  display: none;
+  text-align: center;
+}

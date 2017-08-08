@@ -372,5 +372,10 @@ body {
     transform: rotate(0deg); }
   100% {
     transform: rotate(360deg); } }
+.not-found {
+  display: none;
+  text-align: center; }
+  .not-found h1 {
+    font-size: 4.5em; }
 
 /*# sourceMappingURL=app.css.map */

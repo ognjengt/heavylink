@@ -7,6 +7,10 @@
 
         LinksFactory.getLinksForThisUrl($routeParams.generatedUrl).then(function(response) {
             console.log(response.data);
+            if(response.data == null) {
+                $('.not-found').show();
+                return;
+            }
             $scope.record = response.data;
             var trusted = [];
             $scope.record.Urls.forEach(function(url){

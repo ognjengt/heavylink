@@ -33,7 +33,7 @@ namespace Heavylink.DB
 
         public async Task<Record> GetLinksForThisUrl(string code)
         {
-            var record = await GeneratedLinksCollection.Find(l => l.GeneratedUrl == code).SingleAsync();
+            var record = await GeneratedLinksCollection.Find(l => l.GeneratedUrl == code).SingleOrDefaultAsync();
             return record;
         }
     }
