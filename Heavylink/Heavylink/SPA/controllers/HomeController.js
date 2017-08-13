@@ -2,6 +2,7 @@
 
     function init() {
         $scope.links = [];
+        $scope.link = {};
         $scope.linkId = 0;
         $scope.firstHotkey = 17;
         $scope.addOnPasteEnabled = true;
@@ -54,6 +55,10 @@
             return obj.id !== id;
         });
         document.getElementById('linkInput').focus();
+    }
+
+    $scope.clearAll = function() {
+        $scope.links = [];
     }
 
     $scope.generateGroupLink = function(links) {

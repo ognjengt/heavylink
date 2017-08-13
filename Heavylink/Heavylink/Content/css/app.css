@@ -18,15 +18,15 @@ body {
   text-align: center; }
   .topbar p {
     font-size: 1.22em; }
-  .topbar a {
-    color: #fff;
-    text-decoration: none; }
-    .topbar a h4.brand {
-      font-weight: 500;
-      font-size: 5em;
-      margin: 0; }
-      .topbar a h4.brand span {
-        color: #2ecc71; }
+  .topbar h4.brand {
+    font-weight: 500;
+    font-size: 5em;
+    margin: 0; }
+    .topbar h4.brand a {
+      color: #fff;
+      text-decoration: none; }
+    .topbar h4.brand span {
+      color: #2ecc71; }
 
 .spacer {
   margin-top: 160px; }
@@ -72,7 +72,25 @@ body {
     color: #29b765; }
   .content .mainleft .links {
     text-align: left;
-    margin-top: 50px; }
+    margin-top: 50px;
+    position: relative; }
+    .content .mainleft .links .clear-all {
+      position: absolute;
+      top: -30px;
+      right: 25px;
+      opacity: 0.2;
+      background: #000;
+      font-size: 2em;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      text-align: center;
+      padding: 7px;
+      padding-left: 8px;
+      transition: 0.15s ease; }
+    .content .mainleft .links .clear-all:hover {
+      opacity: 0.8; }
     .content .mainleft .links .link {
       width: 100%;
       height: 70px;
@@ -328,11 +346,9 @@ body {
   min-height: 500px;
   max-height: auto;
   margin-top: 120px; }
-  .linkpage-content .links a:hover h5 {
-    text-decoration: underline !important; }
   .linkpage-content .links .link {
     width: 100%;
-    height: 300px;
+    height: 70px;
     background: #484B5E;
     color: #fff;
     padding: 20px;

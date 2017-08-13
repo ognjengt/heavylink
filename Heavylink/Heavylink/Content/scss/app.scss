@@ -32,20 +32,21 @@ body {
   p{
     font-size: 1.22em;
   }
-  a{
-    color: #fff;
-    text-decoration: none;
     h4.brand{
-  font-weight: 500;
-  font-size: 5em;
-  //text-shadow: 0px 1px 3px #222;
-  margin: 0;
-  
-  span{
-    color: $spanColor;
-  }
-}
-  }
+      a{
+        color: #fff;
+        text-decoration: none;
+      }
+
+      font-weight: 500;
+      font-size: 5em;
+      //text-shadow: 0px 1px 3px #222;
+      margin: 0;
+      
+      span{
+        color: $spanColor;
+      }
+    }
 }
 
 
@@ -103,6 +104,29 @@ body {
     .links{
       text-align: left;
       margin-top: 50px;
+      position: relative;
+
+      .clear-all{
+        position: absolute;
+        top: -30px;
+        right: 25px;
+        opacity: 0.2;
+        background: #000;
+        font-size: 2em;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        text-align: center;
+        padding: 7px;
+        padding-left: 8px;
+        transition: 0.15s ease;
+      }
+
+      .clear-all:hover{
+        opacity: 0.8;
+      }
+      
       .link{
         width: 100%;
         height: 70px;
@@ -425,16 +449,16 @@ body {
     max-height: auto;
     margin-top: 120px;
     
-    a:hover{
-      h5{
-        text-decoration: underline !important;
-      }
+    // a:hover{
+    //   h5{
+    //     text-decoration: underline !important;
+    //   }
       
-    }
+    // }
 
     .link{
         width: 100%;
-        height: 300px;
+        height: 70px;
         background: #484B5E;
         color: #fff;
         padding: 20px;

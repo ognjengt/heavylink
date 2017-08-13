@@ -5,7 +5,7 @@
     <div class="mainleft">
       <!--<h4>NEW LINK GROUP</h4>-->
       <div class="container">
-        <p>Add on paste {{addOnPasteEnabled? 'enabled' : 'disabled'}}. <span class="addOnPasteBtn" ng-click="addOnPasteEnabled = !addOnPasteEnabled">{{addOnPasteEnabled? 'Disable' : 'Enable'}}</span></p>
+        <p>Add on paste (Ctrl+V) {{addOnPasteEnabled? 'enabled' : 'disabled'}}. <span class="addOnPasteBtn" ng-click="addOnPasteEnabled = !addOnPasteEnabled">{{addOnPasteEnabled? 'Disable' : 'Enable'}}</span></p>
 
           <input type="text" placeholder="Your link goes here..." ng-model="link.pastedUrl" ng-keyup="CallAddLinkOnEnter($event)" id="linkInput"/>
           <button data-toggle="tooltip" title="Add link" class="btn btn-default" ng-click="addLink(link)"><i class="ion ion-plus"></i></button>
@@ -13,6 +13,9 @@
           
       </div>
       <div class="container links" ng-show="links.length != 0">
+        <div class="clear-all" data-toggle="tooltip" title="Clear all" ng-click="clearAll()">
+          <i class="ion ion-android-close"></i>
+        </div>
         
         <div ng-repeat="link in links">
           <a href="{{link.pastedUrl}}" target="_blank">
