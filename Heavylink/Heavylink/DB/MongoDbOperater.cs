@@ -14,6 +14,7 @@ namespace Heavylink.DB
         public MongoClient Client { get; set; }
         public IMongoDatabase Database { get; set; }
         public IMongoCollection<Record> GeneratedLinksCollection { get; set; }
+        public IMongoCollection<User> UsersCollection { get; set; }
 
         public MongoDbOperater() { }
 
@@ -22,6 +23,7 @@ namespace Heavylink.DB
             this.Client = new MongoClient(address);
             this.Database = Client.GetDatabase(dbName);
             this.GeneratedLinksCollection = Database.GetCollection<Record>("generatedLinks");
+            this.UsersCollection = Database.GetCollection<User>("users");
         }
 
         public async Task<bool> AddNewLink(Record generatedLink)
@@ -35,6 +37,12 @@ namespace Heavylink.DB
         {
             var record = await GeneratedLinksCollection.Find(l => l.GeneratedUrl == code).SingleOrDefaultAsync();
             return record;
+        }
+
+        public async Task<User> CheckUserExists(string email)
+        {
+            User exists = await UsersCollection.Find(u => u.Email == email).SingleOrDefaultAsync();
+            return exists;
         }
     }
 

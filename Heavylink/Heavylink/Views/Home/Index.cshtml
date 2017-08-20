@@ -15,9 +15,16 @@
 
     <div class="container-fluid">
         <div class="topbar">
-            <h4 class="brand"><a href="http://localhost:6934"> HEAVY<span>LINK</span></a></h4>
+            <h4 class="brand"><a href="http://localhost:6934">rapid<span>lynk</span></a></h4>
             <p>Group links and send them as one</p>
+
+            <div class="auth-holder">
+                <a href="/login"><div class="btn auth-btn"><i class="ion ion-log-in"></i> Login</div></a>
+                <a href="/signup"><div class="btn auth-btn"><i class="ion ion-edit"></i> Sign up</div></a>
+            </div>
         </div>
+        
+        
     </div>
 
     <div ng-view></div>
@@ -39,10 +46,13 @@
     <script src="../../SPA/controllers/HomeController.js"></script>
     <script src="../../SPA/controllers/MainController.js"></script>
     <script src="../../SPA/controllers/LinkController.js"></script>
+    <script src="../../SPA/controllers/LoginController.js"></script>
+    <script src="../../SPA/controllers/SignUpController.js"></script>
 
     <!--Services-->
     <script src="../../SPA/services/HomeFactory.js"></script>
     <script src="../../SPA/services/LinksFactory.js"></script>
+    <script src="../../SPA/services/AuthFactory.js"></script>
 
     <!--Directives-->
 </body>

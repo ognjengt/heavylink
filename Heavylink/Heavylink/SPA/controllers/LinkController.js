@@ -9,8 +9,10 @@
             console.log(response.data);
             if(response.data == null) {
                 $('.not-found').show();
+                $scope.found = false;
                 return;
             }
+            $scope.found = true;
             $scope.record = response.data;
             var trusted = [];
             $scope.record.Urls.forEach(function(url){
@@ -33,6 +35,12 @@
             
         }
     }
+
+    // $scope.openAllLinks = function() {
+    //     $scope.record.Urls.forEach(function(url) {
+    //         window.open(url, '_blank');
+    //     });
+    // }
 
 
 })

@@ -16,6 +16,24 @@ body {
   left: 0;
   z-index: 100;
   text-align: center; }
+  .topbar .auth-holder {
+    position: absolute;
+    right: 10px;
+    top: 0px;
+    padding: 32px;
+    padding-top: 50px;
+    height: 160px; }
+    .topbar .auth-holder .auth-btn {
+      color: #454545;
+      border-radius: 100px;
+      background: #191920;
+      font-size: 1.1em;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+      color: #fff;
+      border: 1px solid #32323f;
+      transition: 0.15s ease; }
+    .topbar .auth-holder .auth-btn:hover {
+      color: #2ecc71; }
   .topbar p {
     font-size: 1.22em; }
   .topbar h4.brand {
@@ -343,7 +361,7 @@ body {
   margin-top: 20px; }
 .linkpage-content .links {
   width: 100%;
-  min-height: 500px;
+  min-height: 100px;
   max-height: auto;
   margin-top: 120px; }
   .linkpage-content .links .link {
@@ -393,5 +411,58 @@ body {
   text-align: center; }
   .not-found h1 {
     font-size: 4.5em; }
+
+.signup-wrapper {
+  text-align: center; }
+  .signup-wrapper .generate-button {
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    padding: 15px;
+    background: #2ecc71;
+    border-radius: 4px;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: 0.15s ease;
+    border-color: #198764;
+    border-top: 2px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    font-size: 1.02em; }
+  .signup-wrapper .generate-button:hover {
+    background: #25a25a;
+    color: #fff; }
+  .signup-wrapper .signup-window {
+    background: #fff;
+    width: 80%;
+    min-height: 400px;
+    max-height: 600px;
+    margin: auto;
+    margin-top: 30px;
+    border-radius: 4px;
+    padding: 20px;
+    background: #191920;
+    font-size: 1.1em;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    border: 1px solid #32323f; }
+    .signup-wrapper .signup-window h2 {
+      font-weight: 100; }
+    .signup-wrapper .signup-window form {
+      text-align: left;
+      padding: 30px; }
+      .signup-wrapper .signup-window form input {
+        width: 100%;
+        height: 60px;
+        border-radius: 100px;
+        box-shadow: none;
+        border: none;
+        outline: none;
+        padding: 20px;
+        background: #191920;
+        float: left;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+        color: #fff;
+        border: 1px solid #32323f;
+        margin-top: 20px; }
 
 /*# sourceMappingURL=app.css.map */

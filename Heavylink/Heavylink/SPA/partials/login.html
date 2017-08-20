@@ -1,0 +1,26 @@
+<div class="container-fluid">
+  <div class="spacer"></div>
+  
+  <div class="signup-wrapper">
+      <div class="container">
+        <div class="col-md-12">
+          <div class="signup-window">
+            <h2>Login</h2>
+            <p>Your favourite links, one click away</p>
+  
+            <form>
+                <div class="form-group">
+                    <input type="text" class="form-control" ng-model="user.email" placeholder="Email">
+                  </div>
+              <div class="form-group">
+                <input type="password" ng-model="user.password" class="form-control" placeholder="Password">
+              </div>
+              <button ng-click="Login(user)" class="btn generate-button">Login</button>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+</div>
