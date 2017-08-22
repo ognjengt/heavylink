@@ -1,6 +1,6 @@
-﻿var app = angular.module('app', ['ngRoute','ngAnimate', 'ngclipboard']);
+﻿var app = angular.module('app', ['ngRoute','ngAnimate', 'ngclipboard','angular-jwt']);
 
-app.config(function ($routeProvider, $locationProvider) {
+app.config(function ($routeProvider, $locationProvider, jwtInterceptorProvider, $httpProvider) {
 
     $routeProvider.when('/', {
         controller: 'HomeController',
@@ -11,6 +11,12 @@ app.config(function ($routeProvider, $locationProvider) {
     }).when('/signup', {
         controller: 'SignUpController',
         templateUrl: 'SPA/partials/signup.html'
+    }).when('/dashboard', {
+        controller: 'DashboardController',
+        templateUrl: 'SPA/partials/dashboard.html'
+    }).when('/profile', {
+        controller: 'ProfileController',
+        templateUrl: 'SPA/partials/profile.html'
     }).when('/:generatedUrl', {
         controller: 'LinkController',
         templateUrl: 'SPA/partials/generatedUrl.html'

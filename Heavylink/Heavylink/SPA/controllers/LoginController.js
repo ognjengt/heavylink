@@ -1,6 +1,9 @@
 app.controller('LoginController', function ($scope, $window, $rootScope, AuthFactory) { 
   
   function init() {
+    if($rootScope.token) {
+      $window.location.href = "/";
+    }
     $scope.user = {};
   }
 
@@ -8,7 +11,16 @@ app.controller('LoginController', function ($scope, $window, $rootScope, AuthFac
 
   $scope.Login = function(user) {
     AuthFactory.Login(user).then((response) => {
-      console.log(response.data);
+      if(response.data == "User does not exist") {
+        alert('User does not exist, btw find a finer way for popup msgs');
+      }
+      else if(response.data == "Wrong credentials") {
+        alert('Wrong credentials, btw find a finer way for popup msgs');
+      }
+      else {
+        localStorage.setItem("token",response.data);
+        $window.location.href = '/';
+      }
     })
   }
   

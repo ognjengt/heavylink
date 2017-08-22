@@ -1,9 +1,10 @@
 ﻿app.factory('HomeFactory', function ($http) {
     var factory = {};
 
-    factory.generateGroupLink = function(urls) {
+    factory.generateGroupLink = function(urls, username) {
         return $http.post('/api/Links/GenerateGroupLink', {
-            Urls: urls
+            Urls: urls,
+            Author: username
         })
     }
     

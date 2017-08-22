@@ -12,6 +12,7 @@ namespace Heavylink.Models
         public ObjectId Id { get; set; }
         public string GeneratedUrl { get; set; }
         public List<string> Urls { get; set; }
+        public string Author { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime DateExpires { get; set; }
 

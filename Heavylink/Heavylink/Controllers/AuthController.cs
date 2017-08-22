@@ -17,10 +17,11 @@ namespace Heavylink.Controllers
         MongoDbOperater DbOperater = new MongoDbOperater("mongodb://localhost", "heavylink");
 
         [HttpPost]
+        [AllowAnonymous]
         [ActionName("SignUp")]
         public async Task<bool> SignUp(User u)
         {
-            User userExists = await DbOperater.CheckUserExists(u.Email);
+            User userExists = await DbOperater.CheckUserExists(u.Email, u.Username);
             if (userExists != null)
             {
                 return false;
@@ -37,12 +38,28 @@ namespace Heavylink.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         [ActionName("Login")]
         public async Task<string> Login(User u)
         {
-            // Uradi token :)
-            string token = "";
-            return token;
+            User user = await DbOperater.CheckLogin(u.Email);
+            if (user == null)
+            {
+                return "User does not exist";
+            }
+            else
+            {
+                if (pcrypter.ValidatePassword(u.Password,user.Password))
+                {
+                    return JwtManager.GenerateToken(user);
+                }
+                else
+                {
+                    return "Wrong credentials";
+                }
+            }
+
+            throw new HttpResponseException(HttpStatusCode.Unauthorized);
         }
     }
 }

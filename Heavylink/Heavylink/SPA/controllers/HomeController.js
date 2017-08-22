@@ -1,6 +1,12 @@
-﻿app.controller('HomeController', function ($scope, $window, $rootScope, HomeFactory) {
+﻿app.controller('HomeController', function ($scope, $window, $rootScope, HomeFactory, jwtHelper) {
 
+    var tokenPayload = null;
     function init() {
+
+        if($rootScope.token != null) {
+            tokenPayload = jwtHelper.decodeToken(localStorage.getItem('token'));
+          }
+
         $scope.links = [];
         $scope.link = {};
         $scope.linkId = 0;
@@ -67,7 +73,11 @@
         links.forEach(function(link) {
             urls.push(link.pastedUrl);
         });
-        HomeFactory.generateGroupLink(urls).then(function(response) {
+        var username = "Anonymous";
+        if(tokenPayload != null) {
+            username = tokenPayload.unique_name;
+        }
+        HomeFactory.generateGroupLink(urls, username).then(function(response) {
             console.log(response.data);
             $scope.generatedLink = "http://localhost:6934/"+response.data; // change in prod
             $('#loading').fadeOut(100);

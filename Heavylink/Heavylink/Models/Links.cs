@@ -8,5 +8,6 @@ namespace Heavylink.Models
     public class Links
     {
         public List<string> Urls { get; set; }
+        public string Author { get; set; }
     }
 }

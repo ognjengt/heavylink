@@ -1,6 +1,9 @@
 app.controller('SignUpController', function ($scope, $window, $rootScope, AuthFactory, $timeout) { 
   
   function init() {
+    if($rootScope.token) {
+      $window.location.href = "/";
+    }
     $scope.user = {};
   }
 

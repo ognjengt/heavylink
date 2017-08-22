@@ -18,9 +18,14 @@
             <h4 class="brand"><a href="http://localhost:6934">rapid<span>lynk</span></a></h4>
             <p>Group links and send them as one</p>
 
-            <div class="auth-holder">
+            <div class="auth-holder" ng-show="token.length == null">
                 <a href="/login"><div class="btn auth-btn"><i class="ion ion-log-in"></i> Login</div></a>
                 <a href="/signup"><div class="btn auth-btn"><i class="ion ion-edit"></i> Sign up</div></a>
+            </div>
+
+            <div class="auth-holder" ng-show="token.length > 0">
+                <a href="/profile"><div class="btn auth-btn"><i class="ion ion-person"></i> Profile</div></a>
+                <div class="btn auth-btn" ng-click="Logout()"><i class="ion ion-log-out"></i> Logout</div>
             </div>
         </div>
         
@@ -36,6 +41,7 @@
     <script src="../../Scripts/jquery-1.10.2.min.js"></script>
     <script src="../../Scripts/bootstrap.min.js"></script>
     <script src="../../Scripts/angular.min.js"></script>
+    <script src="../../Scripts/angular-jwt.min.js"></script>
     <script src="../../Scripts/angular-route.min.js"></script>
     <script src="../../Scripts/angular-animate.min.js"></script>
     <script src="../../Scripts/clipboard.min.js"></script>
@@ -48,11 +54,14 @@
     <script src="../../SPA/controllers/LinkController.js"></script>
     <script src="../../SPA/controllers/LoginController.js"></script>
     <script src="../../SPA/controllers/SignUpController.js"></script>
+    <script src="../../SPA/controllers/DashboardController.js"></script>
+    <script src="../../SPA/controllers/ProfileController.js"></script>
 
     <!--Services-->
     <script src="../../SPA/services/HomeFactory.js"></script>
     <script src="../../SPA/services/LinksFactory.js"></script>
     <script src="../../SPA/services/AuthFactory.js"></script>
+    <script src="../../SPA/services/ProfileFactory.js"></script>
 
     <!--Directives-->
 </body>

@@ -1,4 +1,4 @@
-﻿app.controller('LinkController', function ($scope, $window, $rootScope, $routeParams, LinksFactory, $sce) {
+﻿app.controller('LinkController', function ($scope, $window, $rootScope, $routeParams, LinksFactory, $sce, jwtHelper) {
 
     function init() {
         // change in prod

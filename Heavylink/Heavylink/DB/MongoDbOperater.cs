@@ -39,10 +39,28 @@ namespace Heavylink.DB
             return record;
         }
 
-        public async Task<User> CheckUserExists(string email)
+        public async Task<User> CheckUserExists(string email, string username)
+        {
+            User exists = null;
+            exists = await UsersCollection.Find(u => u.Email == email).SingleOrDefaultAsync();
+            if (exists != null)
+            {
+                return exists;
+            }
+            exists = await UsersCollection.Find(u => u.Username == username).SingleOrDefaultAsync();
+            return exists;
+        }
+
+        public async Task<User> CheckLogin(string email)
         {
             User exists = await UsersCollection.Find(u => u.Email == email).SingleOrDefaultAsync();
             return exists;
+        }
+
+        public async Task<List<Record>> GetUserLinks(string username)
+        {
+            var records = await GeneratedLinksCollection.Find(l => l.Author == username).ToListAsync();
+            return records;
         }
     }
 

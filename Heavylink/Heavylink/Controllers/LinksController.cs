@@ -14,7 +14,9 @@ namespace Heavylink.Controllers
     public class LinksController : ApiController
     {
         MongoDbOperater DbOperater = new MongoDbOperater("mongodb://localhost", "heavylink");
+
         [HttpPost]
+        [AllowAnonymous]
         [ActionName("GenerateGroupLink")]
         public async Task<string> GenerateGroupLink([FromBody]Links links)
         {
@@ -29,6 +31,7 @@ namespace Heavylink.Controllers
             gl.GeneratedUrl = uniqueUrl;
             gl.Urls = links.Urls;
             gl.DateCreated = DateTime.Now;
+            gl.Author = links.Author;
 
             bool added = await DbOperater.AddNewLink(gl);
             if (!added)
@@ -39,10 +42,20 @@ namespace Heavylink.Controllers
             return uniqueUrl;
         }
 
+        [HttpGet]
+        [AllowAnonymous]
         public async Task<Record> GetLinksForThisUrl(string code)
         {
             Record record = await DbOperater.GetLinksForThisUrl(code);
             return record;
+        }
+
+        [HttpGet]
+        [ActionName("GetUserLinks")]
+        public async Task<List<Record>> GetUserLinks(string username)
+        {
+            var records = await DbOperater.GetUserLinks(username);
+            return records;
         }
     }
 }
