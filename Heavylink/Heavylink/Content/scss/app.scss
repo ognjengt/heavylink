@@ -636,3 +636,14 @@ body {
         
       }
     }
+
+    .profile-linkpage-content{
+      @extend .linkpage-content;
+      .links{
+        margin-top: 0;
+
+        a{
+          text-decoration: none !important;
+        }
+      }
+    }

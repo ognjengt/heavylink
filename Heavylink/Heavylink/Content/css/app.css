@@ -341,9 +341,9 @@ body {
   background: transparent;
   outline: none; }
 
-.linkpage-content .main-link-content {
+.linkpage-content .main-link-content, .profile-linkpage-content .main-link-content {
   margin-top: 20px; }
-.linkpage-content .linkInput {
+.linkpage-content .linkInput, .profile-linkpage-content .linkInput {
   text-align: center;
   width: 100%;
   height: 60px;
@@ -359,12 +359,12 @@ body {
   color: #fff;
   border: 1px solid #32323f;
   margin-top: 20px; }
-.linkpage-content .links {
+.linkpage-content .links, .profile-linkpage-content .links {
   width: 100%;
   min-height: 100px;
   max-height: auto;
   margin-top: 120px; }
-  .linkpage-content .links .link {
+  .linkpage-content .links .link, .profile-linkpage-content .links .link {
     width: 100%;
     height: 70px;
     background: #484B5E;
@@ -380,15 +380,15 @@ body {
     border-top: 1px solid rgba(255, 255, 255, 0.3);
     overflow: hidden;
     position: relative; }
-    .linkpage-content .links .link .preview {
+    .linkpage-content .links .link .preview, .profile-linkpage-content .links .link .preview {
       width: 100%;
       height: 220px;
       border-radius: 4px; }
-      .linkpage-content .links .link .preview iframe {
+      .linkpage-content .links .link .preview iframe, .profile-linkpage-content .links .link .preview iframe {
         width: 100%;
         height: 100%;
         overflow: hidden; }
-    .linkpage-content .links .link .show-preview {
+    .linkpage-content .links .link .show-preview, .profile-linkpage-content .links .link .show-preview {
       position: absolute;
       bottom: 11px;
       right: 15px;
@@ -396,9 +396,9 @@ body {
       height: 20px;
       font-size: 1.7em;
       transition: 0.15s ease; }
-    .linkpage-content .links .link .show-preview:hover {
+    .linkpage-content .links .link .show-preview:hover, .profile-linkpage-content .links .link .show-preview:hover {
       color: #2ecc71; }
-  .linkpage-content .links .link:hover {
+  .linkpage-content .links .link:hover, .profile-linkpage-content .links .link:hover {
     background: #696e89; }
 
 @keyframes rotiraj {
@@ -464,5 +464,10 @@ body {
         color: #fff;
         border: 1px solid #32323f;
         margin-top: 20px; }
+
+.profile-linkpage-content .links {
+  margin-top: 0; }
+  .profile-linkpage-content .links a {
+    text-decoration: none !important; }
 
 /*# sourceMappingURL=app.css.map */

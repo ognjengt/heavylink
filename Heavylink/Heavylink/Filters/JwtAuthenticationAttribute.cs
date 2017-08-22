@@ -43,9 +43,10 @@ namespace Heavylink.Filters
 
 
 
-        private static bool ValidateToken(string token, out string email)
+        private static bool ValidateToken(string token, out string email, out string username)
         {
             email = null;
+            username = null;
 
             var simplePrinciple = JwtManager.GetPrincipal(token);
             var identity = simplePrinciple.Identity as ClaimsIdentity;
@@ -56,13 +57,20 @@ namespace Heavylink.Filters
             if (!identity.IsAuthenticated)
                 return false;
 
-            var usernameClaim = identity.FindFirst(ClaimTypes.Email);
-            email = usernameClaim?.Value;
+            var emailClaim = identity.FindFirst(ClaimTypes.Email);
+            email = emailClaim?.Value;
+
+            var usernameClaim = identity.FindFirst(ClaimTypes.Name);
+            username = usernameClaim?.Value;
 
             if (string.IsNullOrEmpty(email))
                 return false;
 
+            if (string.IsNullOrEmpty(username))
+                return false;
+
             // More validate to check whether username exists in system
+
 
             return true;
         }
@@ -70,13 +78,15 @@ namespace Heavylink.Filters
         protected Task<IPrincipal> AuthenticateJwtToken(string token)
         {
             string email;
+            string username;
 
-            if (ValidateToken(token, out email))
+            if (ValidateToken(token, out email, out username))
             {
                 // based on username to get more information from database in order to build local identity
                 var claims = new List<Claim>
                 {
-                    new Claim(ClaimTypes.Email, email)
+                    new Claim(ClaimTypes.Email, email),
+                    new Claim(ClaimTypes.Name, username)
                     // Add more claims if needed: Roles, ...
                 };
 

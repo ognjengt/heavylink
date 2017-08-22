@@ -1,7 +1,26 @@
 <div class="container-fluid">
   <div class="spacer"></div>
   <div class="container">
-    <h1>Your links</h1>
+    <div class="col-md-12">
+      <h2>Your links</h2>
+    </div>
+    <h3>DODAJ EDIT ZA IME i OBRISI</h3>
+    <div class="profile-linkpage-content">
+
+      <div class="links">
+        <div ng-repeat="link in userLinks">
+          <div class="col-md-6">
+            <a href="http://localhost:6934/{{link.GeneratedUrl}}">
+              <div class="link">
+                http://localhost:6934/{{link.GeneratedUrl}}
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
 
   </div>
 </div>

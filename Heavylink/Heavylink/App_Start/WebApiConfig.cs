@@ -13,6 +13,7 @@ namespace Heavylink
 
             // Web API routes
             config.MapHttpAttributeRoutes();
+            config.Filters.Add(new AuthorizeAttribute()); // NE ZABORAVI!!!
 
             config.Routes.MapHttpRoute("ActionApi",
               "api/{controller}/{action}",

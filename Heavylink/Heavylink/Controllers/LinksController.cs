@@ -8,6 +8,7 @@ using System.Web.Http;
 using Heavylink.DB;
 using System.Threading.Tasks;
 using System.Threading;
+using Heavylink.Filters;
 
 namespace Heavylink.Controllers
 {
@@ -50,12 +51,13 @@ namespace Heavylink.Controllers
             return record;
         }
 
+        [JwtAuthentication]
         [HttpGet]
-        [ActionName("GetUserLinks")]
         public async Task<List<Record>> GetUserLinks(string username)
         {
             var records = await DbOperater.GetUserLinks(username);
             return records;
         }
+
     }
 }
