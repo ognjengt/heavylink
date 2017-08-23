@@ -15,7 +15,7 @@
 
     <div class="container-fluid">
         <div class="topbar">
-            <h4 class="brand"><a href="http://localhost:6934">rapid<span>lynk</span></a></h4>
+            <h4 class="brand"><a href="http://localhost:6934">capsule<span>link</span></a></h4>
             <p>Group links and send them as one</p>
 
             <div class="auth-holder" ng-show="token.length == null">
@@ -24,7 +24,7 @@
             </div>
 
             <div class="auth-holder" ng-show="token.length > 0">
-                <a href="/profile"><div class="btn auth-btn"><i class="ion ion-person"></i> Profile</div></a>
+                <a href="/profile"><div class="btn auth-btn"><i class="ion ion-person"></i> {{username}}</div></a>
                 <div class="btn auth-btn" ng-click="Logout()"><i class="ion ion-log-out"></i> Logout</div>
             </div>
         </div>

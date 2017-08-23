@@ -1,8 +1,8 @@
-app.controller('SignUpController', function ($scope, $window, $rootScope, AuthFactory, $timeout) { 
+app.controller('SignUpController', function ($scope, $window, $rootScope, AuthFactory, $timeout, $location) { 
   
   function init() {
-    if($rootScope.token) {
-      $window.location.href = "/";
+    if($rootScope.loggedIn) {
+      $location.path('/');
     }
     $scope.user = {};
   }
@@ -20,10 +20,7 @@ app.controller('SignUpController', function ($scope, $window, $rootScope, AuthFa
    }
    AuthFactory.SignUp(user).then((response) => {
      if (response.data) {
-      console.log('Successfully registered, redirecting to login page in 3 seconds');
-       $timeout(function() {
-         $window.location.href = "/login";
-       },3000)
+      $window.location.href = "/login";
      }
    })
   }

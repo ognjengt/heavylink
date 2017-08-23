@@ -9,6 +9,8 @@ using Heavylink.DB;
 using System.Threading.Tasks;
 using System.Threading;
 using Heavylink.Filters;
+using MongoDB.Driver;
+using MongoDB.Bson;
 
 namespace Heavylink.Controllers
 {
@@ -33,6 +35,8 @@ namespace Heavylink.Controllers
             gl.Urls = links.Urls;
             gl.DateCreated = DateTime.Now;
             gl.Author = links.Author;
+            gl.Title = links.Title;
+            gl.Private = false;
 
             bool added = await DbOperater.AddNewLink(gl);
             if (!added)
@@ -57,6 +61,28 @@ namespace Heavylink.Controllers
         {
             var records = await DbOperater.GetUserLinks(username);
             return records;
+        }
+
+        [JwtAuthentication]
+        [HttpPost]
+        [ActionName("ChangeLinkTitle")]
+        public async Task<bool> ChangeLinkTitle(RecordRequest r)
+        {
+            var filter = Builders<Record>.Filter.Eq("Id", ObjectId.Parse(r.Id));
+            var update = Builders<Record>.Update.Set("Title",r.Title);
+            var result = await DbOperater.GeneratedLinksCollection.UpdateOneAsync(filter, update);
+            return true;
+        }
+
+        [JwtAuthentication]
+        [HttpPost]
+        [ActionName("UpdateSettings")]
+        public async Task<bool> UpdateSettings(RecordRequest r)
+        {
+            var filter = Builders<Record>.Filter.Eq("Id", ObjectId.Parse(r.Id));
+            var update = Builders<Record>.Update.Set("Private", r.Private);
+            var result = await DbOperater.GeneratedLinksCollection.UpdateOneAsync(filter, update);
+            return true;
         }
 
     }

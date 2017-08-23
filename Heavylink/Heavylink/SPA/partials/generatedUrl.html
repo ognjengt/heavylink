@@ -4,9 +4,20 @@
     <div class="col-md-12">
       <div class="main-link-content">
         <div class="container">
+          
+          <div ng-show="found" class="title-holder">
+            <h2>{{record.Title}} <span ng-click="openEditTitle()" ng-show="record.Author == username" class="editTitleBtn" data-toggle="tooltip" title="Change title"><i class="ion ion-edit"></i></span></h2>
+            <!-- <p>Author: {{record.Author}}</p> -->
+          </div>
+          
+
           <input class="linkInput" type="text" id="linkInput" value="{{linkUrl}}">
 
           <button id="copyLinkBtn" ngclipboard data-clipboard-target="#linkInput" ngclipboard-success="putCopiedFeedback()" data-toggle="tooltip" title="Copy link" class="btn btn-default btn-copy-linkpage"><i class="ion ion-clipboard"></i></button>
+
+          <button ng-show="found && (record.Author == username)" data-toggle="tooltip" title="Settings" class="btn btn-default btn-settings" ng-click="openSettings()"><i class="ion ion-ios-gear"></i></button>
+          
+          
 
           <div class="container links">
             <div ng-repeat="link in record.Urls">
@@ -28,9 +39,15 @@
             </div>
             <div class="not-found">
               <h1>404</h1>
-              <h2>This link you are trying to access doesn't exist anymore.</h2>
+              <h2>The link you are trying to access doesn't exist anymore.</h2>
               <p>This can happen due to link expiration period, or the link didn't exist in the first place.</p>
             </div>
+
+            <div class="privateLink">
+              <h1>This link is private.</h1>
+              <p>If you are the owner of this link, please login so you can view it's contents.</p>
+            </div>
+
           </div>
           
           <!--<div class="container" ng-show="found">
@@ -42,6 +59,66 @@
           
           
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="changeTitlePopup">
+        <div class="overlay">
+          <div class="wrapper">
+            <div class="close-popup" ng-click="closeTitlePopup()"><i class="ion ion-close"></i></div>
+            <div class="header">Change title</div>
+            <div class="popup-body">
+      
+              <div class="container-fluid">
+                <form>
+                  <input type="text" class="generatedInput" ng-model="record.Title">
+
+                  <button data-toggle="tooltip" title="Submit" class="btn btn-submit-changes" type="submit" ng-click="SubmitChangeTitle()"><i id="submitTitleIcon" class="ion ion-checkmark"></i></button>
+                </form>
+              </div>
+      
+            </div>
+          </div>
+        </div>
+</div>
+
+<div id="settingsPopup">
+  <div class="overlay">
+    <div class="wrapper">
+      <div class="close-popup" ng-click="closeSettingsPopup()"><i class="ion ion-close"></i></div>
+      <div class="header">Settings</div>
+      <div class="popup-body">
+
+        <div class="container-fluid">
+          <form>
+              <div class="checkbox">
+                <input ng-model="privateChecked" type="checkbox" name="" value="" ng-checked="{{privateChecked}}" id="checkboxPrivate">
+                <label for="checkboxPrivate"></label>
+
+                <div class="text">
+                  <h4>Private</h4>
+                </div>
+              </div>
+
+              <div class="info">
+                  <p class="note">*Note: putting a link on private means only you are able to access it.</p>
+                <!-- <h5>Date created: <span>{{record.DateCreated}}</span></h5>
+                <h5>Author: <span>{{record.Author}}</span></h5> -->
+              </div>
+
+            <div class="pull-right">
+                <div class="btn button-delete"><i class="ion ion-ios-trash"></i> Delete link</div>
+                <div ng-click="UpdateSettings(privateChecked)" type="submit" class="btn button-success"><i class="ion ion-checkmark"></i> Save changes</div>      
+            </div>
+            <div class="updatingSettings">
+              <h5>Updating...</h5>  
+            </div>          
+              
+          </form>
+        </div>
+
       </div>
     </div>
   </div>

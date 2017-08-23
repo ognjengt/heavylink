@@ -238,6 +238,7 @@
     <Compile Include="DB\MongoDbOperater.cs" />
     <Compile Include="Helpers\JwtManager.cs" />
     <Compile Include="Helpers\PasswordCrypter.cs" />
+    <Compile Include="Models\Additional.cs" />
     <Compile Include="Models\Record.cs" />
     <Compile Include="Models\Link.cs" />
     <Compile Include="Models\Links.cs" />

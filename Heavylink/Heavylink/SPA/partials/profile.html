@@ -4,19 +4,24 @@
     <div class="col-md-12">
       <h2>Your links</h2>
     </div>
-    <h3>DODAJ EDIT ZA IME i OBRISI</h3>
     <div class="profile-linkpage-content">
 
       <div class="links">
         <div ng-repeat="link in userLinks">
-          <div class="col-md-6">
+          <div class="col-md-4">
             <a href="http://localhost:6934/{{link.GeneratedUrl}}">
               <div class="link">
-                http://localhost:6934/{{link.GeneratedUrl}}
+                <h5>{{link.Title}}</h5>
+                <p>{{link.Urls.length}} links</p>
+
+                <div data-toggle="tooltip" title="This link is private" ng-show="link.Private == true" class="private">
+                  <i class="ion ion-eye-disabled"></i>
+                </div>
               </div>
             </a>
           </div>
         </div>
+        <h3 ng-show="userLinks.length == 0">You haven't created any links so far.</h3>
       </div>
 
     </div>

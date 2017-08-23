@@ -421,6 +421,20 @@ body {
       margin-top: 25px;
       color: #777;
 }
+.btn-settings{
+      width: 35px;
+      font-size: 1.7em;
+      float: left;
+      height: 50px;
+      border-radius: 100%;
+      margin-left: -90px;
+      outline: none;
+      border: none;
+      background: transparent;
+      transition: 0.15s ease;
+      margin-top: 25px;
+      color: #777;
+}
 .btn-goto-generated{
       width: 50px;
       font-size: 1.7em;
@@ -435,7 +449,8 @@ body {
       margin-top: 25px;
       color: #777;
 }
-.btn-copy-generated:hover, .btn-copy-generated:visited, .btn-copy-generated:active, .btn-copy-generated:focus, .btn-goto-generated:hover, .btn-goto-generated:visited, .btn-goto-generated:active, .btn-goto-generated:focus, .btn-copy-linkpage:hover, .btn-copy-linkpage:visited, .btn-copy-linkpage:active, .btn-copy-linkpage:focus{
+.btn-copy-generated:hover, .btn-copy-generated:visited, .btn-copy-generated:active, .btn-copy-generated:focus, .btn-goto-generated:hover, .btn-goto-generated:visited, .btn-goto-generated:active, .btn-goto-generated:focus, .btn-copy-linkpage:hover, .btn-copy-linkpage:visited, .btn-copy-linkpage:active, .btn-copy-linkpage:focus,
+.btn-settings:hover, .btn-settings:visited, .btn-settings:active, .btn-settings:focus{
     color: $spanColor;
     background: transparent;
     outline: none;
@@ -446,6 +461,52 @@ body {
 
   .main-link-content{
     margin-top: 20px;
+  }
+
+  .title-holder{
+    text-align: center;
+    position: relative;
+    
+    .editTitleBtn{
+      opacity: 0.3;
+      background: #000;
+      width: 40px;
+      height: 40px;
+      font-size: 0.7em;
+      border-radius: 50%;
+      cursor: pointer;
+      text-align: center;
+      padding: 6px;
+      padding-left: 10px;
+      padding-right: 10px;
+      margin-left: 2px;
+      transition: 0.15s ease;
+    }
+    .editTitleBtn:hover{
+      opacity: 0.8;
+    }
+
+    // .settings-btn{
+    //   position: absolute;
+    //   right: 3px;
+    //   top: 3px;
+    //   opacity: 0.3;
+    //   background: #000;
+    //   width: 40px;
+    //   height: 40px;
+    //   font-size: 1.7em;
+    //   border-radius: 50%;
+    //   cursor: pointer;
+    //   text-align: center;
+    //   padding: 9px;
+    //   padding-left: 11px;
+    //   padding-right: 10px;
+    //   margin-left: 2px;
+    //   transition: 0.15s ease;
+    // }
+    // .settings-btn:hover{
+    //   opacity: 0.8;
+    // }
   }
 
   .linkInput{
@@ -539,6 +600,10 @@ body {
   }
 }
 
+.animateloader{
+  animation: rotiraj 1s infinite linear;
+}
+
 .not-found{
   h1{
     font-size: 4.5em;
@@ -546,6 +611,7 @@ body {
   display: none;
   text-align: center;
 }
+
 
     //   .generate-button{
     //   width: 100%;
@@ -636,7 +702,7 @@ body {
         
       }
     }
-
+      // links on profile
     .profile-linkpage-content{
       @extend .linkpage-content;
       .links{
@@ -644,6 +710,222 @@ body {
 
         a{
           text-decoration: none !important;
+
+          .link{
+            height: 90px;
+            position: relative;
+
+            p{
+              font-size: 0.9em;
+            }
+            .private{
+              position: absolute;
+              right: 12px;
+              top: 10px;
+              font-size: 1.5em;
+              color: $spanColor;
+            }
+
+          }
         }
       }
     }
+
+#changeTitlePopup{
+  @extend #popup;
+
+  .btn-submit-changes{
+    font-size: 1.7em;
+    height: 50px;
+    border-radius: 100%;
+    margin-left: -50px;
+    outline: none;
+    border: none;
+    background: transparent;
+    transition: 0.15s ease;
+    margin-top: 25px;
+    color: #777;
+  }
+  .btn-submit-changes:hover{
+    color: $spanColor;
+  }
+}
+
+#settingsPopup{
+  @extend #popup;
+
+  .button-success{
+    width: 200px;
+    height: 40px;
+    text-align: center;
+    padding: 9px;
+    background: $spanColor;
+    border-radius: 4px;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: 0.15s ease;
+    border-color: #198764;
+    border-top: 2px solid rgba(255,255,255,0.3);
+    color: #fff;
+    font-size: 1.02em;
+  }
+
+  .button-delete{
+    width: 200px;
+    height: 40px;
+    text-align: center;
+    padding: 9px;
+    background: #e74c3c;
+    border-radius: 4px;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: 0.15s ease;
+    border-color: #e74c3c;
+    border-top: 2px solid rgba(255,255,255,0.3);
+    color: #fff;
+    font-size: 1.02em;
+  }
+
+  .button-success:hover{
+    background: darken($spanColor,10);
+  }
+
+  .button-delete:hover{
+    background: lighten(#e74c3c,10);
+  }
+
+  .wrapper{
+    width: 450px;
+    height: 260px;
+  }
+  .info{
+    padding-left: 20px;
+
+    .note{
+      font-size: 0.95em;
+    }
+
+    span{
+      font-weight: 100;
+    }
+  }
+
+  .pull-right{
+    margin-top: 10px;
+  }
+
+  .checkbox{
+    input[type=checkbox] {
+      visibility: hidden;
+    }
+    width: 40px;
+    height: 40px;
+    background: #ddd;
+    margin: 20px 20px;
+  
+    border-radius: 100%;
+    position: relative;
+    box-shadow: 0px 1px 3px rgba(0,0,0,0.5);
+
+    .text{
+      h4{
+        font-weight: 400;
+      }
+      position: absolute;
+      left: 55px;
+      top: 3px;
+    }
+  }
+  .checkbox label{
+    display: block;
+    width: 34px;
+    height: 34px;
+    border-radius: 100px;
+  
+    transition: all .3s ease;
+    cursor: pointer;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    z-index: 1;
+  
+    background: #333;
+    box-shadow:inset 0px 1px 3px rgba(0,0,0,0.5);
+  }
+  .checkbox input[type=checkbox]:checked + label {
+    background: $spanColor;
+  }
+}
+.titleInput{
+  padding-left: 100px;
+  padding-right: 100px;
+  .linkTitleInput{
+    @extend .generatedInput;
+    width: 100% !important;
+    height: 50px !important;
+    margin-top: 70px !important;
+    opacity: 0.6;
+    transition: 0.15s ease;
+  }
+  .linkTitleInput:focus{
+    opacity: 1;
+  }
+}
+
+
+// --------------------- ON/OFF -----------------------
+
+// .onoffswitch {
+//   position: relative; width: 110px;
+//   -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+// }
+// .onoffswitch-checkbox {
+//   display: none;
+// }
+// .onoffswitch-label {
+//   display: block; overflow: hidden; cursor: pointer;
+//   border: 2px solid #E3E3E3; border-radius: 36px;
+// }
+// .onoffswitch-inner {
+//   display: block; width: 200%; margin-left: -100%;
+//   transition: margin 0.3s ease-in 0s;
+// }
+// .onoffswitch-inner:before, .onoffswitch-inner:after {
+//   display: block; float: left; width: 50%; height: 36px; padding: 0; line-height: 36px;
+//   font-size: 16px; color: white;
+//   box-sizing: border-box;
+// }
+// .onoffswitch-inner:before {
+//   content: "Public";
+//   padding-left: 10px;
+//   background-color: #2ECC71; color: #FFFFFF;
+// }
+// .onoffswitch-inner:after {
+//   content: "Private";
+//   padding-right: 10px;
+//   background-color: #E74C3C; color: #FFFFFF;
+//   text-align: right;
+// }
+// .onoffswitch-switch {
+//   display: block; width: 36px; margin: 0px;
+//   background: #FFFFFF;
+//   position: absolute;
+//   height: 36px;
+//   right: 73px;
+//   border: 2px solid #E3E3E3; border-radius: 36px;
+//   transition: all 0.3s ease-in 0s; 
+// }
+// .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+//   margin-left: 0;
+// }
+// .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+//   right: 0px; 
+// }
+.privateLink{
+  display: none;
+  text-align: center;
+}
+.updatingSettings{
+  display: none;
+  text-align: center;
+}

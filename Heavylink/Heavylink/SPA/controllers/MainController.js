@@ -1,14 +1,18 @@
-﻿app.controller('MainController', function ($scope, $window, $rootScope) {
+﻿app.controller('MainController', function ($scope, $window, $rootScope, jwtHelper) {
 
-    function init() {
-        $rootScope.token = localStorage.getItem('token');
+    $rootScope.token = localStorage.getItem('token');
+    if($rootScope.token) {
+        $rootScope.loggedIn = true;
+        $rootScope.username = jwtHelper.decodeToken(localStorage.getItem('token')).unique_name;
     }
-
-    init();
+    else {
+        $rootScope.loggedIn = false;
+        $rootScope.username = "anon";
+    }
 
     $scope.Logout = function() {
         localStorage.removeItem('token');
-        $window.location.href = '/login';
         $rootScope.token = null;
+        $window.location.href = '/login';
     }
 })

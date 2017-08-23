@@ -27,12 +27,27 @@
           </div>
         </a>
         </div>
-      </div>
+        <div class="titleInput">
+          <form>
+            <input class="linkTitleInput" placeholder="Title (optional)" ng-model="groupTitle">
 
+            <button type="submit" hidden ng-click="generateGroupLink(links,groupTitle)"></button>
+          </form>
+        </div>
+      </div>
+      
+      <!-- <div class="onoffswitch">
+        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+        <label class="onoffswitch-label" for="myonoffswitch">
+            <span class="onoffswitch-inner"></span>
+            <span class="onoffswitch-switch"></span>
+        </label>
+      </div> -->
+      
 
       <div class="container" ng-show="links.length != 0">
         <div class="col-md-12">
-          <div class="btn generate-button" ng-click="generateGroupLink(links)">Generate group link</div>
+          <div class="btn generate-button" ng-click="generateGroupLink(links, groupTitle)">Generate group link</div>
         </div>
       </div>
 

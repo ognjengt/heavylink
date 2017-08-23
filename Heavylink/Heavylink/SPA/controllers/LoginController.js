@@ -1,8 +1,9 @@
-app.controller('LoginController', function ($scope, $window, $rootScope, AuthFactory) { 
+app.controller('LoginController', function ($scope, $window, $rootScope, AuthFactory, $location) { 
   
   function init() {
-    if($rootScope.token) {
-      $window.location.href = "/";
+    if($rootScope.loggedIn) {
+      $location.path('/');
+      //$window.location.href = "/";
     }
     $scope.user = {};
   }

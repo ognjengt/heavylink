@@ -14,12 +14,20 @@
             }
             $scope.found = true;
             $scope.record = response.data;
+            if ($scope.record.Private && $rootScope.username != $scope.record.Author) {
+
+                $scope.record.Urls = [];
+                $scope.found = false;
+                $('.privateLink').show();
+                return;
+            }
             var trusted = [];
             $scope.record.Urls.forEach(function(url){
                 trusted.push($sce.trustAsResourceUrl(url));
             });
             $scope.record.Urls = trusted;
-            
+            $scope.privateChecked = $scope.record.Private;
+            //$scope.title = $scope.record.Title;
         })
     }
 
@@ -29,18 +37,51 @@
         $('#copyLinkBtn').attr('title', 'Copied!').tooltip('fixTitle').tooltip('show');
     }
 
-    window.iframeLoaded = function(iframe) {
-        console.log(iframe.id);
-        if(!isNaN(iframe.id.substring(7,6))) {
+    // window.iframeLoaded = function(iframe) {
+    //     console.log(iframe.id);
+    //     if(!isNaN(iframe.id.substring(7,6))) {
             
-        }
+    //     }
+    // }
+
+    $scope.openEditTitle = function() {
+        $('#changeTitlePopup').fadeIn(150);
     }
 
-    // $scope.openAllLinks = function() {
-    //     $scope.record.Urls.forEach(function(url) {
-    //         window.open(url, '_blank');
-    //     });
-    // }
+    $scope.openSettings = function() {
+        $('#settingsPopup').fadeIn(150);
+    }
+
+    $scope.SubmitChangeTitle = function() {
+        $('#submitTitleIcon').removeClass('ion-checkmark').addClass('ion-load-c animateloader');
+        LinksFactory.changeLinkTitle($scope.record.Id, $scope.record.Title).then((response) => {
+            $('#changeTitlePopup').fadeOut(150);
+            $('#submitTitleIcon').removeClass('ion-load-c animateloader').addClass('ion-checkmark');
+        })
+    }
+
+    $scope.closeTitlePopup = function() {
+        $('#submitTitleIcon').removeClass('ion-load-c animateloader').addClass('ion-checkmark');
+        $('#changeTitlePopup').fadeOut(150);
+    }
+
+    $scope.closeSettingsPopup = function() {
+        $('#settingsPopup').fadeOut(150);
+    }
+
+    $scope.UpdateSettings = function(private) {
+        var settings = {
+            private: private,
+            id: $scope.record.Id
+        }
+        $('.pull-right').hide();
+        $('.updatingSettings').show();
+        LinksFactory.UpdateSettings(settings).then((response) => {
+            $('.pull-right').show();
+            $('.updatingSettings').hide();
+            $('#settingsPopup').fadeOut(150);
+        })
+    }
 
 
 })

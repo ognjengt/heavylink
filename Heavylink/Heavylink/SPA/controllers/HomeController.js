@@ -40,7 +40,6 @@
 
     $scope.addLink = function(link) {
         if(link.pastedUrl == null || link.pastedUrl == '') {
-            alert('Please enter a valid link');
             return;
         }
         if($scope.links.length == 10) {
@@ -67,7 +66,7 @@
         $scope.links = [];
     }
 
-    $scope.generateGroupLink = function(links) {
+    $scope.generateGroupLink = function(links, groupTitle) {
         var urls = [];
         $('#popup').fadeIn(200);
         links.forEach(function(link) {
@@ -77,7 +76,17 @@
         if(tokenPayload != null) {
             username = tokenPayload.unique_name;
         }
-        HomeFactory.generateGroupLink(urls, username).then(function(response) {
+
+        if(groupTitle == "" || groupTitle == null) {
+            groupTitle = "Untitled";
+        }
+
+        var data = {
+            urls: urls,
+            username: username,
+            title: groupTitle
+        }
+        HomeFactory.generateGroupLink(data).then(function(response) {
             console.log(response.data);
             $scope.generatedLink = "http://localhost:6934/"+response.data; // change in prod
             $('#loading').fadeOut(100);
