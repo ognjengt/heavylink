@@ -29,7 +29,7 @@
         </div>
         <div class="titleInput">
           <form>
-            <input class="linkTitleInput" placeholder="Title (optional)" ng-model="groupTitle">
+            <input maxlength="70" class="linkTitleInput" placeholder="Title (optional)" ng-model="groupTitle">
 
             <button type="submit" hidden ng-click="generateGroupLink(links,groupTitle)"></button>
           </form>

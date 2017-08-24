@@ -73,7 +73,7 @@
       
               <div class="container-fluid">
                 <form>
-                  <input type="text" class="generatedInput" ng-model="record.Title">
+                  <input maxlength="70" type="text" class="generatedInput" ng-model="record.Title">
 
                   <button data-toggle="tooltip" title="Submit" class="btn btn-submit-changes" type="submit" ng-click="SubmitChangeTitle()"><i id="submitTitleIcon" class="ion ion-checkmark"></i></button>
                 </form>
@@ -103,9 +103,9 @@
               </div>
 
               <div class="info">
-                  <p class="note">*Note: putting a link on private means only you are able to access it.</p>
-                <!-- <h5>Date created: <span>{{record.DateCreated}}</span></h5>
-                <h5>Author: <span>{{record.Author}}</span></h5> -->
+                  <p class="note">(Putting a link on private means only you are able to access it.)</p>
+                <h5>Created on <span>{{record.DateCreated | date}}</span></h5>
+                <!--<h5>Author: <span>{{record.Author}}</span></h5> -->
               </div>
 
             <div class="pull-right">

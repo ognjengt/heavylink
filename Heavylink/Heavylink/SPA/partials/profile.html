@@ -7,14 +7,14 @@
     <div class="profile-linkpage-content">
 
       <div class="links">
-        <div ng-repeat="link in userLinks">
+        <div ng-repeat="link in userLinks | orderBy:'-'">
           <div class="col-md-4">
             <a href="http://localhost:6934/{{link.GeneratedUrl}}">
               <div class="link">
                 <h5>{{link.Title}}</h5>
                 <p>{{link.Urls.length}} links</p>
 
-                <div data-toggle="tooltip" title="This link is private" ng-show="link.Private == true" class="private">
+                <div data-toggle="tooltip" data-placement="left" title="This link is private" ng-show="link.Private == true" class="private">
                   <i class="ion ion-eye-disabled"></i>
                 </div>
               </div>

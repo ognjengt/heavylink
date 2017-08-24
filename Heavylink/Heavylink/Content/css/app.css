@@ -292,7 +292,8 @@ body {
   margin-top: 20px;
   border: 2px solid #2ecc71;
   color: #fff;
-  float: left; }
+  float: left;
+  padding-right: 50px; }
 
 .btn-copy-generated {
   width: 50px;
@@ -516,7 +517,9 @@ body {
         right: 12px;
         top: 10px;
         font-size: 1.5em;
-        color: #2ecc71; }
+        color: #2ecc71;
+        width: 20px;
+        height: 20px; }
 
 #changeTitlePopup .btn-submit-changes {
   font-size: 1.7em;
@@ -566,9 +569,10 @@ body {
   background: #ed7669; }
 #settingsPopup .wrapper {
   width: 450px;
-  height: 260px; }
+  height: 270px; }
 #settingsPopup .info {
-  padding-left: 20px; }
+  padding-left: 20px;
+  padding-right: 20px; }
   #settingsPopup .info .note {
     font-size: 0.95em; }
   #settingsPopup .info span {

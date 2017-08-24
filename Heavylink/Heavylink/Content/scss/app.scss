@@ -392,6 +392,7 @@ body {
       border: 2px solid $spanColor;
       color: #fff;
       float: left;
+      padding-right: 50px;
 }
 .btn-copy-generated{
       width: 50px;
@@ -724,6 +725,8 @@ body {
               top: 10px;
               font-size: 1.5em;
               color: $spanColor;
+              width: 20px;
+              height: 20px;
             }
 
           }
@@ -796,10 +799,11 @@ body {
 
   .wrapper{
     width: 450px;
-    height: 260px;
+    height: 270px;
   }
   .info{
     padding-left: 20px;
+    padding-right: 20px;
 
     .note{
       font-size: 0.95em;
