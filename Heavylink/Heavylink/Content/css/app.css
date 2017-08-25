@@ -109,7 +109,7 @@ body {
       transition: 0.15s ease; }
     .content .mainleft .links .clear-all:hover {
       opacity: 0.8; }
-    .content .mainleft .links .link {
+    .content .mainleft .links .link, .content .mainleft .profile-linkpage-content .links a .new-link, .profile-linkpage-content .content .mainleft .links a .new-link {
       width: 100%;
       height: 70px;
       background: #484B5E;
@@ -124,7 +124,7 @@ body {
       padding-right: 35px;
       border-top: 1px solid rgba(255, 255, 255, 0.3);
       overflow: hidden; }
-      .content .mainleft .links .link .close-btn {
+      .content .mainleft .links .link .close-btn, .content .mainleft .profile-linkpage-content .links a .new-link .close-btn, .profile-linkpage-content .content .mainleft .links a .new-link .close-btn {
         position: absolute;
         top: 25px;
         right: 10px;
@@ -132,9 +132,9 @@ body {
         height: 20px;
         font-size: 1.2em;
         transition: 0.15s ease; }
-      .content .mainleft .links .link .close-btn:hover {
+      .content .mainleft .links .link .close-btn:hover, .content .mainleft .profile-linkpage-content .links a .new-link .close-btn:hover, .profile-linkpage-content .content .mainleft .links a .new-link .close-btn:hover {
         color: #2ecc71; }
-    .content .mainleft .links .link:hover {
+    .content .mainleft .links .link:hover, .content .mainleft .profile-linkpage-content .links a .new-link:hover, .profile-linkpage-content .content .mainleft .links a .new-link:hover {
       background: #696e89; }
   .content .mainleft .generate-button {
     width: 100%;
@@ -168,7 +168,7 @@ body {
       font-weight: 500; }
   .content .right .content a {
     color: #fff; }
-  .content .right .content .link {
+  .content .right .content .link, .content .right .content .profile-linkpage-content .links a .new-link, .profile-linkpage-content .links a .content .right .content .new-link {
     width: 100%;
     height: 170px;
     border-bottom: 2px solid rgba(2, 2, 2, 0.15);
@@ -176,11 +176,11 @@ body {
     padding: 20px;
     transition: 0.15s ease;
     cursor: pointer; }
-    .content .right .content .link .colored {
+    .content .right .content .link .colored, .content .right .content .profile-linkpage-content .links a .new-link .colored, .profile-linkpage-content .links a .content .right .content .new-link .colored {
       color: #2ecc71; }
-  .content .right .link:hover {
+  .content .right .link:hover, .content .right .profile-linkpage-content .links a .new-link:hover, .profile-linkpage-content .links a .content .right .new-link:hover {
     background: #2ecc71; }
-    .content .right .link:hover .colored {
+    .content .right .link:hover .colored, .content .right .profile-linkpage-content .links a .new-link:hover .colored, .profile-linkpage-content .links a .content .right .new-link:hover .colored {
       color: #fff; }
 .content ::-webkit-scrollbar {
   display: none; }
@@ -399,7 +399,7 @@ body {
   min-height: 100px;
   max-height: auto;
   margin-top: 120px; }
-  .linkpage-content .links .link, .profile-linkpage-content .links .link {
+  .linkpage-content .links .link, .profile-linkpage-content .links .link, .profile-linkpage-content .links a .new-link, .linkpage-content .newest .links a .link, .newest .linkpage-content .links a .link, .profile-linkpage-content .newest .links a .link, .newest .profile-linkpage-content .links a .link {
     width: 100%;
     height: 70px;
     background: #484B5E;
@@ -415,15 +415,15 @@ body {
     border-top: 1px solid rgba(255, 255, 255, 0.3);
     overflow: hidden;
     position: relative; }
-    .linkpage-content .links .link .preview, .profile-linkpage-content .links .link .preview {
+    .linkpage-content .links .link .preview, .profile-linkpage-content .links .link .preview, .profile-linkpage-content .links a .new-link .preview {
       width: 100%;
       height: 220px;
       border-radius: 4px; }
-      .linkpage-content .links .link .preview iframe, .profile-linkpage-content .links .link .preview iframe {
+      .linkpage-content .links .link .preview iframe, .profile-linkpage-content .links .link .preview iframe, .profile-linkpage-content .links a .new-link .preview iframe {
         width: 100%;
         height: 100%;
         overflow: hidden; }
-    .linkpage-content .links .link .show-preview, .profile-linkpage-content .links .link .show-preview {
+    .linkpage-content .links .link .show-preview, .profile-linkpage-content .links .link .show-preview, .profile-linkpage-content .links a .new-link .show-preview {
       position: absolute;
       bottom: 11px;
       right: 15px;
@@ -431,9 +431,9 @@ body {
       height: 20px;
       font-size: 1.7em;
       transition: 0.15s ease; }
-    .linkpage-content .links .link .show-preview:hover, .profile-linkpage-content .links .link .show-preview:hover {
+    .linkpage-content .links .link .show-preview:hover, .profile-linkpage-content .links .link .show-preview:hover, .profile-linkpage-content .links a .new-link .show-preview:hover {
       color: #2ecc71; }
-  .linkpage-content .links .link:hover, .profile-linkpage-content .links .link:hover {
+  .linkpage-content .links .link:hover, .profile-linkpage-content .links .link:hover, .profile-linkpage-content .links a .new-link:hover {
     background: #696e89; }
 
 @keyframes rotiraj {
@@ -507,12 +507,12 @@ body {
   margin-top: 0; }
   .profile-linkpage-content .links a {
     text-decoration: none !important; }
-    .profile-linkpage-content .links a .link {
+    .profile-linkpage-content .links a .link, .profile-linkpage-content .links a .new-link {
       height: 90px;
       position: relative; }
-      .profile-linkpage-content .links a .link p {
+      .profile-linkpage-content .links a .link p, .profile-linkpage-content .links a .new-link p {
         font-size: 0.9em; }
-      .profile-linkpage-content .links a .link .private {
+      .profile-linkpage-content .links a .link .private, .profile-linkpage-content .links a .new-link .private {
         position: absolute;
         right: 12px;
         top: 10px;
@@ -520,6 +520,10 @@ body {
         color: #2ecc71;
         width: 20px;
         height: 20px; }
+    .profile-linkpage-content .links a .new-link {
+      opacity: 0.5;
+      text-align: center;
+      padding-top: 25px; }
 
 #changeTitlePopup .btn-submit-changes {
   font-size: 1.7em;
@@ -630,5 +634,24 @@ body {
 .updatingSettings {
   display: none;
   text-align: center; }
+
+.profile-loader {
+  text-align: center; }
+  .profile-loader .ion-load-c {
+    font-size: 3em;
+    animation: rotiraj 1s infinite linear; }
+
+.newest {
+  width: 100%;
+  min-height: 400px;
+  max-height: auto;
+  margin-top: 100px;
+  text-align: left; }
+  .newest .links {
+    margin-top: 10px !important; }
+    .newest .profile-linkpage-content .links a .new-link, .profile-linkpage-content .newest .links a .new-link, .newest .links a .link {
+      height: 120px !important; }
+      .newest .profile-linkpage-content .links a .new-link p, .profile-linkpage-content .newest .links a .new-link p, .newest .links a .link p {
+        font-size: 0.9em; }
 
 /*# sourceMappingURL=app.css.map */

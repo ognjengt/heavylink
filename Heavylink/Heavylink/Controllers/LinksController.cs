@@ -85,5 +85,24 @@ namespace Heavylink.Controllers
             return true;
         }
 
+        [JwtAuthentication]
+        [HttpPost]
+        [ActionName("DeleteLink")]
+        public async Task<bool> DeleteLink(RecordRequest r)
+        {
+            var filter = Builders<Record>.Filter.Eq("Id", ObjectId.Parse(r.Id));
+            var result = await DbOperater.GeneratedLinksCollection.DeleteOneAsync(filter);
+            return true;
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        [ActionName("GetRecent")]
+        public async Task<List<Record>> GetRecent()
+        {
+            List<Record> recent = await DbOperater.GeneratedLinksCollection.Find(_ => _.Private == false).SortByDescending(_ => _.DateCreated).Limit(6).ToListAsync();
+            return recent;
+        }
+
     }
 }

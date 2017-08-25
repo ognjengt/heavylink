@@ -1,4 +1,4 @@
-﻿app.controller('LinkController', function ($scope, $window, $rootScope, $routeParams, LinksFactory, $sce, jwtHelper) {
+﻿app.controller('LinkController', function ($scope, $window, $rootScope, $routeParams, LinksFactory, $sce, jwtHelper, $location) {
 
     function init() {
         // change in prod
@@ -80,6 +80,14 @@
             $('.pull-right').show();
             $('.updatingSettings').hide();
             $('#settingsPopup').fadeOut(150);
+        })
+    }
+
+    $scope.DeleteLink = function() {
+        $('.pull-right').hide();
+        $('.updatingSettings').show();
+        LinksFactory.DeleteLink($scope.record.Id).then((response) => {
+            $location.path('/profile');
         })
     }
 

@@ -7,6 +7,13 @@
     <div class="profile-linkpage-content">
 
       <div class="links">
+          <div class="col-md-4">
+              <a href="/">
+                <div class="new-link">
+                  <h5><i class="ion ion-plus"></i> New</h5>
+                </div>
+              </a>
+            </div>
         <div ng-repeat="link in userLinks | orderBy:'-'">
           <div class="col-md-4">
             <a href="http://localhost:6934/{{link.GeneratedUrl}}">
@@ -22,6 +29,10 @@
           </div>
         </div>
         <h3 ng-show="userLinks.length == 0">You haven't created any links so far.</h3>
+
+        <div class="profile-loader">
+          <h3><i class="ion ion-load-c"></i></h3>
+        </div>
       </div>
 
     </div>

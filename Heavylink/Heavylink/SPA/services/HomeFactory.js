@@ -8,6 +8,10 @@
             Title: data.title
         })
     }
+
+    factory.GetRecentLinks = function() {
+        return $http.get('/api/Links/GetRecent');
+    }
     
     return factory;
 })

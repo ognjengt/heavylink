@@ -26,6 +26,16 @@ app.factory('LinksFactory', function ($http) {
         }
       })
     }
+
+    factory.DeleteLink = function(id) {
+      return $http.post('/api/Links/DeleteLink',{
+        Id: id
+      }, {
+        headers: {
+          'Authorization' : 'Bearer '+localStorage.getItem('token')
+        }
+      })
+    }
     
     return factory;
 })

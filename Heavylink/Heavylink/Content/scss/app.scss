@@ -730,6 +730,13 @@ body {
             }
 
           }
+
+          .new-link{
+            @extend .link;
+            opacity: 0.5;
+            text-align: center;
+            padding-top: 25px;
+          }
         }
       }
     }
@@ -932,4 +939,36 @@ body {
 .updatingSettings{
   display: none;
   text-align: center;
+}
+
+.profile-loader{
+  text-align: center;
+
+  .ion-load-c{
+    font-size: 3em;
+    animation: rotiraj 1s infinite linear;
+  }
+}
+
+.newest{
+  width: 100%;
+  min-height: 400px;
+  max-height: auto;
+  margin-top: 100px;
+  text-align: left;
+
+  .links{
+    @extend .links;
+    margin-top: 10px !important;
+    a{
+      .link{
+        @extend .link;
+        height: 120px !important;
+
+        p{
+          font-size: 0.9em;
+        }
+      }
+    }
+  }
 }

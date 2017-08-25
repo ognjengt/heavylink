@@ -15,6 +15,9 @@
         document.getElementById('linkInput').focus();
         $('[data-toggle="tooltip"]').tooltip();
         //$scope.popupVisible = false;
+        HomeFactory.GetRecentLinks().then((response) => {
+            $scope.recentLinks = response.data;
+        })
     }
 
     init();

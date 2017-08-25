@@ -1,4 +1,4 @@
-app.controller('ProfileController', function ($scope, $window, $rootScope, ProfileFactory, jwtHelper, $location) { 
+app.controller('ProfileController', function ($scope, $window, $rootScope, ProfileFactory, jwtHelper, $location, $timeout) { 
   
   function init() {
     if(!$rootScope.loggedIn) {
@@ -9,9 +9,11 @@ app.controller('ProfileController', function ($scope, $window, $rootScope, Profi
 
     ProfileFactory.GetUserLinks($scope.username).then((response) => {
       $scope.userLinks = response.data;
-      setTimeout(function() {
+      // hide loader
+      $('.profile-loader').hide();
+      $timeout(function() {
         $('[data-toggle="tooltip"]').tooltip();
-      },1000)
+      },100)
     })
   }
 
