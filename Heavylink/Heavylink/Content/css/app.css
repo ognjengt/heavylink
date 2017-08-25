@@ -361,7 +361,8 @@ body {
   margin-top: 20px; }
 .linkpage-content .title-holder, .profile-linkpage-content .title-holder {
   text-align: center;
-  position: relative; }
+  position: relative;
+  word-wrap: break-word; }
   .linkpage-content .title-holder .editTitleBtn, .profile-linkpage-content .title-holder .editTitleBtn {
     opacity: 0.3;
     background: #000;
@@ -393,7 +394,9 @@ body {
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
   color: #fff;
   border: 1px solid #32323f;
-  margin-top: 20px; }
+  margin-top: 20px;
+  padding-right: 80px;
+  padding-left: 80px; }
 .linkpage-content .links, .profile-linkpage-content .links {
   width: 100%;
   min-height: 100px;

@@ -13,10 +13,24 @@ app.controller('LoginController', function ($scope, $window, $rootScope, AuthFac
   $scope.Login = function(user) {
     AuthFactory.Login(user).then((response) => {
       if(response.data == "User does not exist") {
-        alert('User does not exist, btw find a finer way for popup msgs');
+        iziToast.show({
+          title: 'That user does not exist',
+          position: 'topLeft',
+          theme: 'light',
+          color: 'red',
+          icon: 'ion ion-close',
+          transitionIn: 'fadeIn'
+        });
       }
       else if(response.data == "Wrong credentials") {
-        alert('Wrong credentials, btw find a finer way for popup msgs');
+        iziToast.show({
+          title: 'Wrong credentials.',
+          position: 'topLeft',
+          theme: 'light',
+          color: 'red',
+          icon: 'ion ion-close',
+          transitionIn: 'fadeIn'
+        });
       }
       else {
         localStorage.setItem("token",response.data);

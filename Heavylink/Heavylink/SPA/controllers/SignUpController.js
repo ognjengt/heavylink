@@ -11,11 +11,26 @@ app.controller('SignUpController', function ($scope, $window, $rootScope, AuthFa
 
   $scope.SignUp = function(user) {
     if(!validateEmail(user.email)) {
-      alert('Bad mail');
+      iziToast.show({
+        title: 'Bad email format',
+        message: 'Please enter the email in the correct format.',
+        position: 'topLeft',
+        theme: 'light',
+        color: 'red',
+        icon: 'ion ion-close',
+        transitionIn: 'fadeIn'
+      });
       return;
     }
    if(user.password != user.confirmPassword) {
-     alert('Passwords do not match!');
+    iziToast.show({
+      title: 'Passwords do not match!',
+      position: 'topLeft',
+      theme: 'light',
+      color: 'red',
+      icon: 'ion ion-close',
+      transitionIn: 'fadeIn'
+    });
      return;
    }
    AuthFactory.SignUp(user).then((response) => {

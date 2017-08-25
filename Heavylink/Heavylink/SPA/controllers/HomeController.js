@@ -17,6 +17,7 @@
         //$scope.popupVisible = false;
         HomeFactory.GetRecentLinks().then((response) => {
             $scope.recentLinks = response.data;
+            $('.profile-loader').hide();
         })
     }
 
@@ -45,8 +46,27 @@
         if(link.pastedUrl == null || link.pastedUrl == '') {
             return;
         }
-        if($scope.links.length == 10) {
-            alert('No more than 10 links per group!');
+        if($scope.links.length == 10 && !$rootScope.loggedIn) {
+            iziToast.show({
+                title: 'No more than 10 links per group',
+                message: 'Please login so you can save more links.',
+                position: 'topLeft',
+                theme: 'light',
+                color: 'blue',
+                icon: 'ion-ios-information',
+                transitionIn: 'fadeIn'
+              });
+            return;
+        }
+        if($scope.links.length == 20) {
+            iziToast.show({
+                title: 'No more than 20 links per group',
+                position: 'topLeft',
+                theme: 'light',
+                color: 'blue',
+                icon: 'ion-ios-information',
+                transitionIn: 'fadeIn'
+              });
             return;
         }
         // check if link contains http
@@ -67,6 +87,7 @@
 
     $scope.clearAll = function() {
         $scope.links = [];
+        $scope.groupTitle = "";
     }
 
     $scope.generateGroupLink = function(links, groupTitle) {
@@ -99,6 +120,7 @@
 
     $scope.closePopup = function() {
         $scope.links = [];
+        $scope.groupTitle = "";
         $('#popup').fadeOut(200);
         $('#wrapperGenerated').fadeOut(200);
         $('#loading').fadeIn(700);
@@ -110,7 +132,6 @@
     }
 
     $scope.goToGeneratedLink = function(generatedLink) {
-        //$window.open(generatedLink, '_blank');
         $window.location.href = generatedLink;
     }
     
