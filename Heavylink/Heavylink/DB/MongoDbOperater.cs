@@ -51,6 +51,18 @@ namespace Heavylink.DB
             return exists;
         }
 
+        public User CheckUserExistsNotAsync(string email, string username)
+        {
+            User exists = null;
+            exists = UsersCollection.Find(u => u.Email == email).SingleOrDefault();
+            if (exists != null)
+            {
+                return exists;
+            }
+            exists = UsersCollection.Find(u => u.Username == username).SingleOrDefault();
+            return exists;
+        }
+
         public async Task<User> CheckLogin(string email)
         {
             User exists = await UsersCollection.Find(u => u.Email == email).SingleOrDefaultAsync();

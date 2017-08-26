@@ -107,7 +107,6 @@
 
         var data = {
             urls: urls,
-            username: username,
             title: groupTitle
         }
         HomeFactory.generateGroupLink(data).then(function(response) {

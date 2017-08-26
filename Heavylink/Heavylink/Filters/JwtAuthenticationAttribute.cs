@@ -1,5 +1,7 @@
-﻿using Heavylink.Filters;
+﻿using Heavylink.DB;
+using Heavylink.Filters;
 using Heavylink.Helpers;
+using Heavylink.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -69,8 +71,56 @@ namespace Heavylink.Filters
             if (string.IsNullOrEmpty(username))
                 return false;
 
-            // More validate to check whether username exists in system
+            MongoDbOperater DbOperater = new MongoDbOperater("mongodb://localhost", "heavylink");
+            User u = DbOperater.CheckUserExistsNotAsync(email, username);
+            if (u == null)
+            {
+                return false;
+            }
+            
+            return true;
+        }
 
+        /// <summary>
+        /// Proverava da li korisnik koji zahteva resurs je taj za koga se predstavlja
+        /// </summary>
+        public static bool CheckResourceRequest(string token, string predstavljenKao)
+        {
+            string email = null;
+            string username = null;
+
+            var simplePrinciple = JwtManager.GetPrincipal(token);
+            var identity = simplePrinciple.Identity as ClaimsIdentity;
+
+            if (identity == null)
+                return false;
+
+            if (!identity.IsAuthenticated)
+                return false;
+
+            var emailClaim = identity.FindFirst(ClaimTypes.Email);
+            email = emailClaim?.Value;
+
+            var usernameClaim = identity.FindFirst(ClaimTypes.Name);
+            username = usernameClaim?.Value;
+
+            if (string.IsNullOrEmpty(email))
+                return false;
+
+            if (string.IsNullOrEmpty(username))
+                return false;
+
+            if (predstavljenKao != username)
+            {
+                return false;
+            }
+
+            MongoDbOperater DbOperater = new MongoDbOperater("mongodb://localhost", "heavylink");
+            User u = DbOperater.CheckUserExistsNotAsync(email, username);
+            if (u == null)
+            {
+                return false;
+            }
 
             return true;
         }

@@ -74,5 +74,22 @@ namespace Heavylink.Helpers
                 return null;
             }
         }
+
+        /// <summary>
+        /// Za dobijeni ID od recorda, proverava da li korisnik koji zeli da izvrsi promene je za pravo autor od tog rekorda
+        /// </summary>
+        /// <returns></returns>
+        public static bool CheckResource(string token, Record recordToCheck)
+        {
+            var simplePrinciple = JwtManager.GetPrincipal(token);
+            var identity = simplePrinciple.Identity as ClaimsIdentity;
+            var usernameClaim = identity.FindFirst(ClaimTypes.Name);
+            string usernameInToken = usernameClaim?.Value;
+            if (recordToCheck.Author != usernameInToken)
+            {
+                throw new UnauthorizedAccessException();
+            }
+            return true;
+        }
     }
 }

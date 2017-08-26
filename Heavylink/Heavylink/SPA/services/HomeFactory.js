@@ -4,8 +4,11 @@
     factory.generateGroupLink = function(data) {
         return $http.post('/api/Links/GenerateGroupLink', {
             Urls: data.urls,
-            Author: data.username,
             Title: data.title
+        },{
+            headers:{
+                'Authorization' : 'Bearer '+localStorage.getItem('token') || 'null'
+            }
         })
     }
 

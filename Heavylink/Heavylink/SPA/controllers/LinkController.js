@@ -45,14 +45,17 @@
     // }
 
     $scope.openEditTitle = function() {
+        if($scope.record.Author != $rootScope.username) return;
         $('#changeTitlePopup').fadeIn(150);
     }
 
     $scope.openSettings = function() {
+        if($scope.record.Author != $rootScope.username) return;
         $('#settingsPopup').fadeIn(150);
     }
 
     $scope.SubmitChangeTitle = function() {
+        if($scope.record.Author != $rootScope.username) return;
         $('#submitTitleIcon').removeClass('ion-checkmark').addClass('ion-load-c animateloader');
         LinksFactory.changeLinkTitle($scope.record.Id, $scope.record.Title).then((response) => {
             $('#changeTitlePopup').fadeOut(150);
@@ -70,6 +73,7 @@
     }
 
     $scope.UpdateSettings = function(private) {
+        if($scope.record.Author != $rootScope.username) return;
         var settings = {
             private: private,
             id: $scope.record.Id
